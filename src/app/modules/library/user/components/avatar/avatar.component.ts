@@ -45,7 +45,6 @@ export class AvatarComponent implements OnInit {
     let reader = new FileReader()
     reader.onload = (_event) => {
       this.image.nativeElement.src = reader.result as string
-      console.log(this.image)
     }
     reader.readAsDataURL(blob);
   }

@@ -35,7 +35,6 @@ export class LoginComponent {
     }
     this._authenticationService.login(loginRequest).subscribe((res) => {
       this._localStorageService.set('access_token', res.token);
-      console.log(this._routerService)
       this._routerService.nav([AppRoutes.app.user.profile]);
     });
   }

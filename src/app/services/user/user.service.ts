@@ -18,4 +18,8 @@ export class UserService extends AppService<any>{
   getByPrincipal = (): Observable<UserPayload> => {
     return this.http.get<UserPayload>(this.endpoint(`${this.url}/principal`))
   }
+
+  getAllByOrganisation = (): Observable<UserPayload[]> => {
+    return this.http.get<UserPayload[]>(this.endpoint(`${this.url}/organisation`));
+  }
 }

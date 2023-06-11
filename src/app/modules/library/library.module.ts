@@ -9,6 +9,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { FormComponent } from './form/components/form/form.component';
 import { AvatarComponent } from './user/components/avatar/avatar.component';
 import {RouterLink} from "@angular/router";
+import { TableComponent } from './crud/components/table/table.component';
+import { DatatableComponent } from './crud/components/datatable/datatable.component';
 
 
 
@@ -20,7 +22,9 @@ import {RouterLink} from "@angular/router";
         FooterComponent,
         InputComponent,
         FormComponent,
-        AvatarComponent
+        AvatarComponent,
+        TableComponent,
+        DatatableComponent
     ],
   exports: [
     HeaderComponent,
@@ -28,7 +32,8 @@ import {RouterLink} from "@angular/router";
     MainComponent,
     FooterComponent,
     InputComponent,
-    AvatarComponent
+    AvatarComponent,
+    DatatableComponent
   ],
     imports: [
         CommonModule,

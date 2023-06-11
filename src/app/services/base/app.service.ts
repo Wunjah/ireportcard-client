@@ -10,7 +10,6 @@ export class AppService<T> implements IAppService<T> {
   }
 
   endpoint = (path: string) => {
-    console.log(`${AppEndpoints.base}`)
     return `${AppEndpoints.base}${path}`
   }
 }
