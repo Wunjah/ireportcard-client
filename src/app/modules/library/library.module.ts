@@ -8,6 +8,7 @@ import { InputComponent } from './form/components/input/input.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { FormComponent } from './form/components/form/form.component';
 import { AvatarComponent } from './user/components/avatar/avatar.component';
+import {RouterLink} from "@angular/router";
 
 
 
@@ -31,7 +32,8 @@ import { AvatarComponent } from './user/components/avatar/avatar.component';
   ],
     imports: [
         CommonModule,
-      ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterLink
     ]
 })
 export class LibraryModule { }

@@ -39,7 +39,7 @@
   }
 
   /**
-   * Sidebar toggle
+   * Sidebar toggle - TODO implement in header.component.ts
    */
   if (select('.toggle-sidebar-btn')) {
     on('click', '.toggle-sidebar-btn', function(e) {

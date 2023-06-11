@@ -8,7 +8,7 @@ export class RouterService {
 
   constructor(private _router: Router,) { }
 
-  navigate = (commands: any[], extras?: NavigationExtras, callback?: () => void) => {
+  nav = (commands: any[], extras?: NavigationExtras, callback?: () => void) => {
     this._router.navigate(commands, extras).then()
   }
 }
