@@ -25,9 +25,20 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
+              "node_modules/boxicons/css/boxicons.min.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/remixicon/fonts/remixicon.css",
+              "node_modules/simple-datatables/dist/style.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/quill/dist/quill.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/tinymce/tinymce.min.js",
+              "src/assets/js/script.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -51,7 +62,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
