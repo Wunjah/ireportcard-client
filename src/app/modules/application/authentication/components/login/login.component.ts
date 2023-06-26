@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AppRoutes} from "../../../../../app.routes";
+import {AppRoute, AppRoutes} from "../../../../../app.routes";
 import {LoginRequest} from "../../../../../models/authentication/login.model";
 import {AuthenticationService} from "../../../../../services/authentication/authentication.service";
 import {LocalStorageService} from "../../../../../services/general/local-storage.service";
@@ -35,8 +35,9 @@ export class LoginComponent {
     }
     this._authenticationService.login(loginRequest).subscribe((res) => {
       this._localStorageService.set('access_token', res.token);
-      console.log(this._routerService)
-      this._routerService.nav([AppRoutes.app.user.profile]);
+      this._routerService.nav([AppRoute.APP_USER_PROFILE]);
     });
   }
+
+  protected readonly AppRoute = AppRoute;
 }

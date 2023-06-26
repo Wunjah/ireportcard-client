@@ -2,18 +2,19 @@
 <aside id="sidebar" class="sidebar">
 
   <ul class="sidebar-nav" id="sidebar-nav">
-    <li *ngFor="let navItem of navItemGroup.navItems" class="nav-item" (click)="clickNavItemAction(navItem, true)">
+    <li *ngFor="let navItem of navItemGroup.navItems" class="nav-item {{navItem.active ? 'show' : ''}}">
       <a class="nav-link collapsed"
          [routerLink]="[navItem.link]"
-         [attr.data-bs-target]="'#' + navItem.id"
+         [attr.data-bs-target]="'#' + navItem.code"
+         (click)="clickNavItemAction(navItem)"
          data-bs-toggle="collapse">
         <i class="{{navItem.icon}}"></i>
         <span>{{navItem.name}}</span>
         <i *ngIf="navItem.children" class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="{{navItem.id}}" *ngIf="navItem.children" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li *ngFor="let childItem of navItem.children" (click)="clickNavItemAction(childItem, false)">
-          <a [routerLink]="[navItem.link + childItem.link]">
+      <ul id="{{navItem.code}}" *ngIf="navItem.children" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <li *ngFor="let childItem of navItem.children" (click)="clickNavItemAction(childItem)">
+          <a [routerLink]="[navItem.link + childItem.link]" class="{{childItem.active ? 'active' : ''}}">
             <i class="bi bi-circle"></i>
             <span>{{childItem.name}}</span>
           </a>

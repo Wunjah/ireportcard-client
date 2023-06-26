@@ -6,21 +6,19 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {LocalStorageService} from "../services/general/local-storage.service";
+import {AccessToken, LocalStorageService} from "../services/general/local-storage.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(
-    private localStorageService: LocalStorageService,
-  ) {}
+  constructor() {}
   private readonly excludedPaths = [
     "/auth/login",
     "/auth/register"
   ]
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const accessToken = this.localStorageService.get('access_token');
+    const accessToken = AccessToken
 
     if (this.isExcluded(request.url) || accessToken == null) {
       return next.handle(request);

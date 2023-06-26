@@ -23,9 +23,12 @@ export class AvatarComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
     this._avatarService.load(this.name()).subscribe(res => {
       this.createImageFromBlob(res);
     });
+     */
+
   }
 
   private name() {
@@ -45,7 +48,6 @@ export class AvatarComponent implements OnInit {
     let reader = new FileReader()
     reader.onload = (_event) => {
       this.image.nativeElement.src = reader.result as string
-      console.log(this.image)
     }
     reader.readAsDataURL(blob);
   }

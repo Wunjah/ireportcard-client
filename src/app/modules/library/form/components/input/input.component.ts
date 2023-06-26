@@ -17,7 +17,6 @@ export class InputComponent extends AppFormControl implements OnInit {
   constructor(@Host() private formGroupDirective: FormGroupDirective) {
     super();
     this.formGroup = this.formGroupDirective.form
-    console.log(this.formGroup)
   }
   ngOnInit() {
 

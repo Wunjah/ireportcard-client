@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {NavItem, NavItemGroup} from "../../models/nav-item.model";
-import {RouterService} from "../../../../../services/general/router.service";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "../../../../../services/user/user.service";
+import {isOrganisationRole} from "../../../../../models/base/role.enum";
+import {NavUtil} from "../../../../../utils/nav.util";
 
 @Component({
   selector: 'app-sidebar',
@@ -10,54 +11,24 @@ import {filter} from "rxjs";
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit{
-  navItemGroup = new NavItemGroup(
-    "main",
-   [
-    {
-      id: "dashboard-nav",
-      name: "Dashboard",
-      icon: "bi bi-grid",
-      link: "/app/dashboard"
-    },
-    {
-      id: "user-nav",
-      name: "User",
-      icon: "bi bi-person-fill",
-      link: "/app/user",
-      children: [
-        {
-          name: "Profile",
-          icon: "bi bi-person-fill",
-          link: "/profile/",
-        }
-      ]
-    }
-  ]
-  )
+  navItemGroup = new NavItemGroup("main", [])
 
   constructor(
     private _router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _userService: UserService,
   ) {
   }
 
   ngOnInit() {
-    this._router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const currentUrl = this._router.url;
-        const matchingNavItem = this.navItemGroup.navItems.find((item) => {
-          return currentUrl.startsWith(item.link);
-        });
-        console.log(matchingNavItem)
-        if (matchingNavItem) {
-          this.navItemGroup.switchActive(matchingNavItem);
-        }
-      })
+   this._userService.getByPrincipal().subscribe(res => {
+     if (isOrganisationRole(res.account?.role)) {
+       this.navItemGroup = NavUtil.ORGANISATION_ADMIN_NAV_GROUP
+     }
+   })
   }
 
-  clickNavItemAction(item: NavItem, parent: boolean) {
+  clickNavItemAction(item: NavItem) {
     this.navItemGroup.switchActive(item);
-    console.log(this.navItemGroup)
   }
 }

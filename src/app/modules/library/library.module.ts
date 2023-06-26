@@ -9,6 +9,11 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { FormComponent } from './form/components/form/form.component';
 import { AvatarComponent } from './user/components/avatar/avatar.component';
 import {RouterLink} from "@angular/router";
+import { TableComponent } from './crud/components/table/table.component';
+import { DatatableComponent } from './crud/components/datatable/datatable.component';
+import { AdminRegisterFormComponent } from './form/components/admin-register-form/admin-register-form.component';
+import { SchoolAddFormComponent } from './form/components/school-add-form/school-add-form.component';
+import { AdminAssignSchoolFormComponent } from './form/components/admin-assign-school-form/admin-assign-school-form.component';
 
 
 
@@ -20,16 +25,24 @@ import {RouterLink} from "@angular/router";
         FooterComponent,
         InputComponent,
         FormComponent,
-        AvatarComponent
+        AvatarComponent,
+        TableComponent,
+        DatatableComponent,
+        AdminRegisterFormComponent,
+        SchoolAddFormComponent,
+        AdminAssignSchoolFormComponent
     ],
-  exports: [
-    HeaderComponent,
-    SidebarComponent,
-    MainComponent,
-    FooterComponent,
-    InputComponent,
-    AvatarComponent
-  ],
+    exports: [
+        HeaderComponent,
+        SidebarComponent,
+        MainComponent,
+        FooterComponent,
+        InputComponent,
+        AvatarComponent,
+        DatatableComponent,
+        AdminRegisterFormComponent,
+        SchoolAddFormComponent
+    ],
     imports: [
         CommonModule,
         ReactiveFormsModule,

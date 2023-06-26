@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Register Admin Form</h5>
+
+    <!-- Multi Columns Form -->
+    <form class="row g-3" [formGroup]="form" (submit)="submit()">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name" id="name">
+      </div>
+      <div class="col-md-6">
+        <label for="max-grade" class="form-label">Max Grade</label>
+        <input type="text" class="form-control" formControlName="maxGrade" id="max-grade">
+      </div>
+      <div class="gap-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form><!-- End Multi Columns Form -->
+  </div>
+</div>
