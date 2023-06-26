@@ -23,9 +23,12 @@ export class AvatarComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
     this._avatarService.load(this.name()).subscribe(res => {
       this.createImageFromBlob(res);
     });
+     */
+
   }
 
   private name() {

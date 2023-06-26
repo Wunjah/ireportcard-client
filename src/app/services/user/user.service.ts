@@ -3,23 +3,21 @@ import {AppService} from "../base/app.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UserPayload} from "../../models/user/user.payload";
-import {AppEndpoints} from "../../app.endpoints";
+import {AppEndpoint, AppEndpoints} from "../../app.endpoints";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService extends AppService<any>{
-  private readonly url = AppEndpoints.user
-
   constructor(private http: HttpClient) {
-    super()
+    super(AppEndpoint.USER)
   }
 
   getByPrincipal = (): Observable<UserPayload> => {
-    return this.http.get<UserPayload>(this.endpoint(`${this.url}/principal`))
+    return this.http.get<UserPayload>(this.urlWithPath('/principal'));
   }
 
   getAllByOrganisation = (): Observable<UserPayload[]> => {
-    return this.http.get<UserPayload[]>(this.endpoint(`${this.url}/organisation`));
+    return this.http.get<UserPayload[]>(this.urlWithPath('/organisation'));
   }
 }

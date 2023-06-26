@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {TableHeader, TableModel} from "../../models/table.model";
+import {TableRowAction, TableHeader, TableModel} from "../../models/table.model";
 
 @Component({
   selector: 'app-datatable',

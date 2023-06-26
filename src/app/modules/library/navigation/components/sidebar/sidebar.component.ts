@@ -28,7 +28,7 @@ export class SidebarComponent implements OnInit{
    })
   }
 
-  clickNavItemAction(item: NavItem, parent: boolean) {
+  clickNavItemAction(item: NavItem) {
     this.navItemGroup.switchActive(item);
   }
 }

@@ -2,13 +2,13 @@ import {NavItem, NavItemGroup} from "../modules/library/navigation/models/nav-it
 
 export module NavUtil {
   const appDashboard: NavItem = {
-    id: "dashboard-nav",
+    code: "dashboard-nav",
     name: "Dashboard",
     icon: "bi bi-grid",
     link: 'app/dashboard'
   }
   const appUser: NavItem = {
-    id: "user-nav",
+    code: "user-nav",
     name: "User",
     icon: "bi bi-person-fill",
     link: "/app/user",
@@ -21,7 +21,7 @@ export module NavUtil {
     ]
   }
   const appOrganisationMembers: NavItem = {
-    id: "members-nav",
+    code: "members-nav",
     name: "Members",
     icon: "bi bi-people-fill",
     link: '/app/organisation/members',
@@ -39,7 +39,7 @@ export module NavUtil {
     ]
   }
   const appOrganisationSchools: NavItem = {
-    id: "schools-nav",
+    code: "schools-nav",
     name: "Schools",
     icon: "bi bi-building",
     link: '/app/organisation/schools',
@@ -47,12 +47,12 @@ export module NavUtil {
       {
         name: "Add School",
         icon: "bi bi-building-add",
-        link: "/add/school",
+        link: "/add",
       },
       {
         name: "Assign School Admin",
         icon: "bi bi-person-fill-lock",
-        link: "/add/school-assignment",
+        link: "/assign-admin",
       },
     ]
   }

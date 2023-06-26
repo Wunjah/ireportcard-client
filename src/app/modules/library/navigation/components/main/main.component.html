@@ -1,13 +1,14 @@
 <main id="main" class="main">
-  <div class="pagetitle">
-    <h1>Profile</h1>
+  <div *ngIf="breadCrumb" class="pagetitle">
+    <h1>{{breadCrumb.name}}</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item">Users</li>
-        <li class="breadcrumb-item active">Profile</li>
+        <li *ngFor="let b of breadCrumb.route.routes; let i = index"
+            class="breadcrumb-item {{(i == breadCrumb.route.routes.length - 1) ? 'active': ''}}">
+          <a>{{b.name}}</a>
+        </li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
-  <ng-content></ng-content>
-</main><!-- End #main -->
+  <ng-content #content></ng-content>
+</main>

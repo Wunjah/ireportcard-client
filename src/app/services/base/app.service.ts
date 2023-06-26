@@ -1,15 +1,17 @@
 import {HttpClient} from "@angular/common/http";
-import {AppEndpoints} from "../../app.endpoints";
+import {AppEndpoint, AppEndpoints} from "../../app.endpoints";
+import {Component} from "@angular/core";
 
 export interface IAppService<T> {
-
 }
 
-export class AppService<T> implements IAppService<T> {
-  constructor(private endpointUrl?: string, private httpClient?: HttpClient) {
+export abstract class AppService<T> implements IAppService<T> {
+  protected readonly url: string;
+  protected constructor(private endpoint?: AppEndpoint, private httpClient?: HttpClient) {
+    this.url = endpoint?.url ?? "";
   }
 
-  endpoint = (path: string) => {
-    return `${AppEndpoints.base}${path}`
+  urlWithPath = (path: string) => {
+    return `${this.url}${path}`
   }
 }

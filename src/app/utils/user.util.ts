@@ -3,7 +3,7 @@ import {TableCell, TableModel, TableRow} from "../modules/library/crud/models/ta
 
 export module UserUtil {
   export const createTable = (users: UserPayload[], title: string = "Users") : TableModel => {
-    return {
+    return <TableModel>{
       title: title,
       header: {
         cells: [
