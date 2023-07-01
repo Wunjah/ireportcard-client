@@ -1,5 +1,7 @@
 export enum Gender {
-  MALE, FEMALE, OTHER
+  MALE = "male",
+  FEMALE = "female",
+  OTHER = "other"
 }
 
 export const genderValues = Object.values(Gender)

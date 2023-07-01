@@ -19,7 +19,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   }
 
   private errorResponseHandler = (response: HttpErrorResponse) => {
-    if (response.hasOwnProperty('error') && response.error.hasOwnProperty('message')) {
+    if (response !== null && response.hasOwnProperty('error') && response.error.hasOwnProperty('message')) {
       const apiError = response.error as ApiError
       console.error(`${response.status}: ${apiError.message}`)
     }

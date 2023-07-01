@@ -20,6 +20,7 @@ export module NavUtil {
       }
     ]
   }
+
   const appOrganisationMembers: NavItem = {
     code: "members-nav",
     name: "Members",
@@ -56,10 +57,64 @@ export module NavUtil {
       },
     ]
   }
+
+  const appSchoolStudents: NavItem = {
+    code: "student-nav",
+    name: "Students",
+    icon: "bi bi-people-fill",
+    link: '/app/school/students',
+    children: [
+      {
+        name: "Add Student",
+        icon: "bi bi-person-add",
+        link: "/add/student",
+      }
+    ]
+  }
+  const appSchoolClasses: NavItem = {
+    code: "class-nav",
+    name: "Classes",
+    icon: "bi bi-people-fill",
+    link: '/app/school/classes',
+    children: [
+      {
+        name: "Add Class",
+        icon: "bi bi-person-add",
+        link: "/add/class",
+      }
+    ]
+  }
+
+  const appSchoolCourses: NavItem = {
+    code: "course-nav",
+    name: "Courses",
+    icon: "bi bi-people-fill",
+    link: '/app/school/courses',
+    children: [
+      {
+        name: "Add Student",
+        icon: "bi bi-person-add",
+        link: "/add/course",
+      }
+    ]
+  }
+
   export const ORGANISATION_ADMIN_NAV_GROUP = new NavItemGroup("", [
     appDashboard,
     appOrganisationMembers,
     appOrganisationSchools,
     appUser
   ]);
+  export const SCHOOL_ADMIN_NAV_GROUP = new NavItemGroup("", [
+    appDashboard,
+    appSchoolStudents,
+    appSchoolClasses,
+    appSchoolCourses,
+    appUser
+  ]);
 }
+
+export type NavGroupKey =
+  'org-admin-nav' |
+  'school-admin-nav' |
+  'student-nav';

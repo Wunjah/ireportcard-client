@@ -39,7 +39,7 @@ export const AppRoutes: AppRouteType = {
         name: 'Schools',
         view: {
           main: '/view',
-          name: 'View Schools'
+          name: 'View School'
         },
         assign_admin: {
           main: '/assign-admin',
@@ -49,7 +49,27 @@ export const AppRoutes: AppRouteType = {
     },
     school: {
       main: '/school',
-      name: '',
+      name: 'School',
+      students: {
+        main: '/students',
+        name: 'Students',
+        view: {
+          main: '/view',
+          name: 'View Student'
+        }
+      },
+      classes: {
+        main: '/classes',
+        name: 'Classes'
+      },
+      courses: {
+        main: '/courses',
+        name: 'Courses'
+      },
+      configuration: {
+        main: '/configuration',
+        name: 'Configuration'
+      }
     }
   }
 }

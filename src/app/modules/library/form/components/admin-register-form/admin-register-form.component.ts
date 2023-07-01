@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {genderValues} from "../../../../../models/base/gender.enum";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserPayload} from "../../../../../models/user/user.payload";
-import {UserRole} from "../../../../../models/base/role.enum";
+import {Role} from "../../../../../models/base/role.enum";
 import {UserService} from "../../../../../services/user/user.service";
 import {SubmitForm} from "../form/submit.form";
 
@@ -102,7 +102,7 @@ export class AdminRegisterFormComponent implements SubmitForm {
       },
       {
         gender: this.form.get('gender')?.value,
-        role: UserRole.RC_ORGANISATION_ADMIN,
+        role: Role.ORGANISATION_ADMIN,
         accountId: '',
         organisationId: this.orgId
       }

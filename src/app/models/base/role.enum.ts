@@ -1,24 +1,30 @@
-export enum UserRole {
-  RC_USER = "auth.policy.role.name.user",
-  RC_STUDENT = "auth.policy.role.name.student",
-  RC_TEACHER = "auth.policy.role.name.teacher",
-  RC_ORGANISATION_ADMIN = "auth.policy.role.name.organisation-admin",
-  RC_SCHOOL_ADMIN = "auth.policy.role.name.school-admin",
-  RC_SUPER_ADMIN = "auth.policy.role.name.super-admin"
+import {Gender} from "./gender.enum";
+
+export enum Role {
+  USER = "user",
+  STUDENT = "student",
+  TEACHER = "teacher",
+  ORGANISATION_ADMIN = "organisation-admin",
+  SCHOOL_ADMIN = "school-admin",
+  SUPER_ADMIN = "super-admin"
 }
 
-export function adminRoles(): UserRole[] {
-  return [UserRole.RC_ORGANISATION_ADMIN, UserRole.RC_SCHOOL_ADMIN];
+export const roleValues = Object.values(Role)
+  .filter(v => isNaN(Number(v)))
+  .map(v => v.toString())
+
+export function adminRoles(): Role[] {
+  return [Role.ORGANISATION_ADMIN, Role.SCHOOL_ADMIN];
 }
 
-export function schoolRoles(): UserRole[] {
-  return [UserRole.RC_STUDENT, UserRole.RC_TEACHER, UserRole.RC_SCHOOL_ADMIN];
+export function schoolRoles(): Role[] {
+  return [Role.STUDENT, Role.TEACHER, Role.SCHOOL_ADMIN];
 }
 
-export function isOrganisationRole(role?: UserRole): boolean {
+export function isOrganisationRole(role?: Role): boolean {
   return role != undefined && adminRoles().includes(role);
 }
 
-export function isSchoolRole(role: UserRole): boolean {
-  return schoolRoles().includes(role);
+export function isSchoolRole(role?: Role): boolean {
+  return role != undefined && schoolRoles().includes(role);
 }

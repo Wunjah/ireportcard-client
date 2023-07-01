@@ -14,6 +14,7 @@ import { DatatableComponent } from './crud/components/datatable/datatable.compon
 import { AdminRegisterFormComponent } from './form/components/admin-register-form/admin-register-form.component';
 import { SchoolAddFormComponent } from './form/components/school-add-form/school-add-form.component';
 import { AdminAssignSchoolFormComponent } from './form/components/admin-assign-school-form/admin-assign-school-form.component';
+import { DatafilterComponent } from './crud/components/datafilter/datafilter.component';
 
 
 
@@ -30,7 +31,8 @@ import { AdminAssignSchoolFormComponent } from './form/components/admin-assign-s
         DatatableComponent,
         AdminRegisterFormComponent,
         SchoolAddFormComponent,
-        AdminAssignSchoolFormComponent
+        AdminAssignSchoolFormComponent,
+        DatafilterComponent
     ],
     exports: [
         HeaderComponent,
@@ -41,7 +43,8 @@ import { AdminAssignSchoolFormComponent } from './form/components/admin-assign-s
         AvatarComponent,
         DatatableComponent,
         AdminRegisterFormComponent,
-        SchoolAddFormComponent
+        SchoolAddFormComponent,
+        DatafilterComponent
     ],
     imports: [
         CommonModule,
