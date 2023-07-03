@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AppRoute, AppRoutes} from "../../../../../app.routes";
-import {LoginRequest} from "../../../../../models/authentication/login.model";
+import {LoginRequest} from "../../../../../models/entity/authentication/login.model";
 import {AuthenticationService} from "../../../../../services/authentication/authentication.service";
 import {LocalStorageService} from "../../../../../services/general/local-storage.service";
-import {Router} from "@angular/router";
 import {RouterService} from "../../../../../services/general/router.service";
 
 @Component({
@@ -13,8 +12,9 @@ import {RouterService} from "../../../../../services/general/router.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  protected readonly AppRoutes = AppRoutes;
   loginForm: FormGroup;
+  protected readonly AppRoutes = AppRoutes;
+  protected readonly AppRoute = AppRoute;
 
   constructor(
     private _fb: FormBuilder,
@@ -38,6 +38,4 @@ export class LoginComponent {
       this._routerService.nav([AppRoute.APP_USER_PROFILE]);
     });
   }
-
-  protected readonly AppRoute = AppRoute;
 }

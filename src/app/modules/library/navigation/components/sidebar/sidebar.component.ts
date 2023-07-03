@@ -2,9 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {NavItem, NavItemGroup} from "../../models/nav-item.model";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {UserService} from "../../../../../services/user/user.service";
-import {isOrganisationRole, isSchoolRole} from "../../../../../models/base/role.enum";
+import {isOrganisationRole, isSchoolRole} from "../../../../../models/entity/base/role.enum";
 import {NavUtil} from "../../../../../utils/nav.util";
-import {CurrentDashboard} from "../../../../../services/general/local-storage.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -14,9 +13,9 @@ import {CurrentDashboard} from "../../../../../services/general/local-storage.se
       <ul class="sidebar-nav" id="sidebar-nav">
         <li *ngFor="let navItem of navItemGroup.navItems" class="nav-item {{navItem.active ? 'show' : ''}}">
           <span class="nav-link collapsed"
-             [attr.data-bs-target]="'#' + navItem.code"
-             (click)="clickNavItemAction(navItem)"
-             data-bs-toggle="collapse">
+                [attr.data-bs-target]="'#' + navItem.code"
+                (click)="clickNavItemAction(navItem)"
+                data-bs-toggle="collapse">
             <a [routerLink]="[navItem.link]">
               <i class="{{navItem.icon}}"></i>
             </a>
@@ -36,7 +35,7 @@ import {CurrentDashboard} from "../../../../../services/general/local-storage.se
     </aside>
   `
 })
-export class SidebarComponent implements OnInit{
+export class SidebarComponent implements OnInit {
   navItemGroup = new NavItemGroup("main", [])
 
   constructor(
@@ -57,21 +56,13 @@ export class SidebarComponent implements OnInit{
   }
 
   ngOnInit() {
-   this._userService.getByPrincipal().subscribe(res => {
-
-     if (CurrentDashboard) {
-       switch (CurrentDashboard) {
-         case "org-admin-nav": this.navItemGroup = NavUtil.ORGANISATION_ADMIN_NAV_GROUP; break;
-         case "school-admin-nav": this.navItemGroup = NavUtil.SCHOOL_ADMIN_NAV_GROUP; break;
-       }
-     } else {
-       if (isOrganisationRole(res.account?.role)) {
-         this.navItemGroup = NavUtil.ORGANISATION_ADMIN_NAV_GROUP
-       } else if (isSchoolRole(res.account?.role)) {
-         this.navItemGroup = NavUtil.SCHOOL_ADMIN_NAV_GROUP;
-       }
-     }
-   });
+    this._userService.getByPrincipal().subscribe(res => {
+      if (isOrganisationRole(res.account?.role)) {
+        this.navItemGroup = NavUtil.ORGANISATION_ADMIN_NAV_GROUP
+      } else if (isSchoolRole(res.account?.role)) {
+        this.navItemGroup = NavUtil.SCHOOL_ADMIN_NAV_GROUP;
+      }
+    });
   }
 
   clickNavItemAction(item: NavItem) {

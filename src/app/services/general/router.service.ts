@@ -1,21 +1,20 @@
-import { Injectable } from '@angular/core';
-import {ActivatedRoute, NavigationEnd, NavigationExtras, Router} from "@angular/router";
+import {Injectable} from '@angular/core';
+import {ActivatedRoute, NavigationExtras, Router} from "@angular/router";
 import {AppRoute} from "../../app.routes";
 import {LocalStorageService} from "./local-storage.service";
 import {NavGroupKey} from "../../utils/nav.util";
-import {BreadCrumbModel} from "../../modules/library/navigation/models/bread-crumb.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouterService {
-  private _route?: ActivatedRoute;
-
   constructor(
     private _router: Router,
     private _localStorage: LocalStorageService
   ) {
   }
+
+  private _route?: ActivatedRoute;
 
   set route(r: ActivatedRoute) {
     this._route = r;
@@ -35,26 +34,33 @@ export class RouterService {
     });
   }
 
-  reload(){
+  reload() {
     this.nav([this._router.url])
   }
 
-  switchDashboard = (key: NavGroupKey) => {
+  switchDashboard = (key: NavGroupKey, reroute?: boolean) => {
     const target = [];
     switch (key) {
-      case "org-admin-nav": target.push('/app/organisation'); break;
-      case "school-admin-nav": target.push('/app/school'); break;
-      case "student-nav": target.push('/app/student'); break;
+      case "org-admin-nav":
+        target.push('/app/organisation');
+        break;
+      case "school-admin-nav":
+        target.push('/app/school');
+        break;
+      case "student-nav":
+        target.push('/app/student');
+        break;
     }
 
-    this.nav(target, undefined, () => {
-      this._localStorage.set("current_dashboard", key);
-      console.log(`Current dashboard: ${key}`);
-      this.reload();
-    });
+    this._localStorage.set("current_dashboard", key);
+    if (reroute) {
+      this.nav(target, undefined, () => {
+        this.reload();
+      });
+    }
   }
 
-  param = <T> (p: string): T => {
+  param = <T>(p: string): T => {
     if (this._route) {
       return this._route.snapshot.params[p] as T;
     } else {

@@ -1,5 +1,3 @@
-import {Gender} from "./gender.enum";
-
 export enum Role {
   USER = "user",
   STUDENT = "student",

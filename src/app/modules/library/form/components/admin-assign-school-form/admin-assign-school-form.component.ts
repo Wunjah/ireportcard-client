@@ -1,8 +1,7 @@
 import {Component, EventEmitter, Input} from '@angular/core';
-import {genderValues} from "../../../../../models/base/gender.enum";
 import {SubmitForm} from "../form/submit.form";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Id} from "../../../../../models/base/base.model";
+import {Id} from "../../../../../models/entity/base/base.entity";
 
 @Component({
   selector: 'app-admin-assign-school-form',

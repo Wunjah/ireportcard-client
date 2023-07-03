@@ -1,21 +1,18 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import {AccessToken, LocalStorageService} from "../services/general/local-storage.service";
+import {Injectable} from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {AccessToken} from "../services/general/local-storage.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor() {}
   private readonly excludedPaths = [
     "/auth/login",
     "/auth/register"
   ]
+
+  constructor() {
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const accessToken = AccessToken
@@ -32,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
     return this.excludedPaths.some((path) => url.endsWith(path));
   }
 
-  private addAccessToken(request: HttpRequest<unknown>, accessToken: string) : HttpRequest<unknown> {
+  private addAccessToken(request: HttpRequest<unknown>, accessToken: string): HttpRequest<unknown> {
     return request.clone({
       headers: request.headers.set('Authorization', `Bearer ${accessToken}`)
     })

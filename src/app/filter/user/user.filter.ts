@@ -1,7 +1,6 @@
-import {Role} from "../../models/base/role.enum";
-import {Gender} from "../../models/base/gender.enum";
-import {Id} from "../../models/base/base.model";
-import {HttpParams} from "@angular/common/http";
+import {Role} from "../../models/entity/base/role.enum";
+import {Gender} from "../../models/entity/base/gender.enum";
+import {Id} from "../../models/entity/base/base.entity";
 import {BaseFilter} from "../base.filter";
 
 export interface UserFilterParams {

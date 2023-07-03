@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import {TableModel} from "../../../../library/crud/models/table.model";
 import {UserService} from "../../../../../services/user/user.service";
 import {UserFilter} from "../../../../../filter/user/user.filter";
-import {Role} from "../../../../../models/base/role.enum";
-import {Gender, genderValues} from "../../../../../models/base/gender.enum";
+import {Role} from "../../../../../models/entity/base/role.enum";
+import {Gender, genderValues} from "../../../../../models/entity/base/gender.enum";
 import {FormModel} from "../../../../library/form/models/form/form.model";
-import {FormControlModel} from "../../../../library/form/models/form/form-control.model";
+import {FormControlModel, FormControlValue} from "../../../../library/form/models/form/form-control.model";
 import {OrganisationId, SchoolId} from "../../../../../services/general/local-storage.service";
 import {UserUtil} from "../../../../../utils/user.util";
 
@@ -26,6 +26,7 @@ export class SchStudentsComponent {
     organisationId: OrganisationId
   });
   dataFilterForm: FormModel;
+
   constructor(private _userService: UserService) {
     this.dataFilterForm = new FormModel({
       formControls: [
@@ -33,7 +34,7 @@ export class SchStudentsComponent {
           label: "Gender",
           name: "gender",
           type: "select",
-          values: genderValues
+          values: FormControlValue.ofArray(genderValues)
         }),
       ]
     });
@@ -41,16 +42,12 @@ export class SchStudentsComponent {
   }
 
   dataFilterAction($event: any) {
-    if (typeof $event == 'object') {
-      Object.entries($event).forEach(([k, v]) => {
-        this.filter.param = {key: k, value: v};
-      });
-    }
+    this.filter.update($event);
     this.refresh();
   }
 
   refresh = () => {
-    this._userService.list(this.filter).subscribe(res => {
+    this._userService.get(this.filter).subscribe(res => {
       this.table = UserUtil.createTable(res, "Students");
     });
   }

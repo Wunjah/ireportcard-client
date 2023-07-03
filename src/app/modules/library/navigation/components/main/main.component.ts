@@ -1,12 +1,4 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  ContentChild,
-  OnChanges,
-  OnInit,
-  SimpleChanges
-} from '@angular/core';
+import {Component, ContentChild, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BreadCrumbModel} from "../../models/bread-crumb.model";
 import {AppRoute} from "../../../../../app.routes";
@@ -18,8 +10,9 @@ import {AppRoute} from "../../../../../app.routes";
 })
 export class MainComponent implements OnInit {
   @ContentChild('content') content: any;
-  private fullPath: string = "";
   breadCrumb?: BreadCrumbModel
+  private fullPath: string = "";
+
   constructor(private _route: ActivatedRoute, private _router: Router) {
   }
 

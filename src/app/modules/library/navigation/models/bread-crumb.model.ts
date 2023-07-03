@@ -4,7 +4,7 @@ export class BreadCrumbModel {
   constructor(public route: AppRoute) {
   }
 
-  get name(){
+  get name() {
     if (this.route.name == '') {
       return this.route.routes[this.route.routes.length - 1].name;
     }

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {OrgMembersComponent} from "./component/org-members/org-members.component";
 import {OrgMembersAddAdminComponent} from "./component/org-members-add-admin/org-members-add-admin.component";
 import {OrgSchoolsComponent} from "./component/org-schools/org-schools.component";
@@ -48,4 +48,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class OrganisationRoutingModule { }
+export class OrganisationRoutingModule {
+}

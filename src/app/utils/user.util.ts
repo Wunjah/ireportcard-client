@@ -1,8 +1,8 @@
-import {UserPayload} from "../models/user/user.payload";
+import {UserPayload} from "../models/entity/user/user.payload";
 import {TableCell, TableModel, TableRow} from "../modules/library/crud/models/table.model";
 
 export module UserUtil {
-  export const createTable = (users: UserPayload[], title: string = "Users") : TableModel => {
+  export const createTable = (users: UserPayload[], title: string = "Users"): TableModel => {
     return <TableModel>{
       title: title,
       header: {

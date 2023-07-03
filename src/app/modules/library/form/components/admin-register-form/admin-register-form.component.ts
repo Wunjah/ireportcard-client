@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {genderValues} from "../../../../../models/base/gender.enum";
+import {genderValues} from "../../../../../models/entity/base/gender.enum";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UserPayload} from "../../../../../models/user/user.payload";
-import {Role} from "../../../../../models/base/role.enum";
+import {UserPayload} from "../../../../../models/entity/user/user.payload";
+import {Role} from "../../../../../models/entity/base/role.enum";
 import {UserService} from "../../../../../services/user/user.service";
 import {SubmitForm} from "../form/submit.form";
 
@@ -81,7 +81,7 @@ export class AdminRegisterFormComponent implements SubmitForm {
       lastname: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      address: ['', ],
+      address: ['',],
       address2: ['',],
       phone: ['', Validators.required],
       gender: ['', Validators.required],

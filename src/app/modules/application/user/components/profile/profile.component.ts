@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserPayload} from "../../../../../models/user/user.payload";
+import {UserPayload} from "../../../../../models/entity/user/user.payload";
 import {UserService} from "../../../../../services/user/user.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
@@ -28,6 +28,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
   private prepareEditProfileForm = (userPayload: UserPayload) => {
     this.editProfileForm = this._fb.group({
       firstname: [userPayload.user.firstname],

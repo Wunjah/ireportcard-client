@@ -1,9 +1,10 @@
 import {UserAccountModel} from "./user-account.model";
-import {UserModel} from "./user.model";
+import {UserEntity} from "./user.entity";
 
 export class UserPayload {
   constructor(
-    public user: UserModel,
+    public user: UserEntity,
     public account?: UserAccountModel
-  ) {}
+  ) {
+  }
 }

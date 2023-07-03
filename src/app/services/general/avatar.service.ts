@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
@@ -7,7 +7,9 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AvatarService {
   private readonly apiUrl = "https://ui-avatars.com/api/"
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   load(name: string): Observable<Blob> {
     return this.http.get(this.apiUrl, {

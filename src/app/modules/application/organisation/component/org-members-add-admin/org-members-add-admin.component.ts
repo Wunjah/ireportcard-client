@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {UserPayload} from "../../../../../models/user/user.payload";
+import {Component} from '@angular/core';
+import {UserPayload} from "../../../../../models/entity/user/user.payload";
 
 @Component({
   selector: 'app-org-members-add-admin',

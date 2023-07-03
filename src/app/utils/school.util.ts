@@ -1,18 +1,18 @@
-import {SchoolModel} from "../models/school/school.model";
+import {SchoolEntity} from "../models/entity/school/school.entity";
 import {
-  TableRowAction,
   TableCell,
   TableModel,
   TableRow,
+  TableRowAction,
   TableRowActionDesc
 } from "../modules/library/crud/models/table.model";
 import {SchoolStaffPayload} from "../models/payload/school-staff.payload";
 
 export module SchoolUtil {
   export const createSchoolsTable = (
-      schools: SchoolModel[],
-      actionDesc: TableRowActionDesc
-    ): TableModel => {
+    schools: SchoolEntity[],
+    actionDesc: TableRowActionDesc
+  ): TableModel => {
     const title = "Schools"
     return <TableModel>{
       title: title,

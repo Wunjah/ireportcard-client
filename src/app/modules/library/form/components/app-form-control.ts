@@ -1,7 +1,7 @@
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {Component, forwardRef, Type} from "@angular/core";
+import {forwardRef, Type} from "@angular/core";
 
-export const formControlProviders = <T extends AppFormControl> (control: Type<T>) => {
+export const formControlProviders = <T extends AppFormControl>(control: Type<T>) => {
   return [
     {
       provide: NG_VALUE_ACCESSOR,

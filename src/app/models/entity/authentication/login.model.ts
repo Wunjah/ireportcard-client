@@ -16,6 +16,7 @@ export class LaunchResponse {
   ) {
   }
 }
+
 export interface LaunchResponse {
   schoolId?: number
   organisationId?: number

@@ -1,19 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import {TableRowAction, TableModel} from "../../../../library/crud/models/table.model";
-import {UserUtil} from "../../../../../utils/user.util";
+import {TableModel} from "../../../../library/crud/models/table.model";
 import {SchoolService} from "../../../../../services/school/school.service";
-import {LocalStorageService, OrganisationId} from "../../../../../services/general/local-storage.service";
+import {OrganisationId} from "../../../../../services/general/local-storage.service";
 import {SchoolUtil} from "../../../../../utils/school.util";
-import {Id} from "../../../../../models/base/base.model";
+import {Id} from "../../../../../models/entity/base/base.entity";
 import {RouterService} from "../../../../../services/general/router.service";
-import {AppRoute, AppRoutes} from "../../../../../app.routes";
+import {AppRoute} from "../../../../../app.routes";
 
 @Component({
   selector: 'app-org-schools',
   templateUrl: './org-schools.component.html',
   styleUrls: ['./org-schools.component.css']
 })
-export class OrgSchoolsComponent implements OnInit{
+export class OrgSchoolsComponent implements OnInit {
   table?: TableModel;
 
   constructor(

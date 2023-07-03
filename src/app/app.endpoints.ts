@@ -11,11 +11,17 @@ export const AppEndpoints: AppEndpointType = {
       main: '/register'
     }
   },
+  class_level: {
+    main: '/class-level'
+  },
   launch: {
     main: '/launch'
   },
   user: {
     main: '/user'
+  },
+  section: {
+    main: '/section'
   },
   school: {
     main: '/school',
@@ -34,22 +40,27 @@ type AppEndpointType = {
 enum AppEndpointKey {
   AUTH_LOGIN = "auth.login",
   AUTH_REGISTER = "auth.register",
+  CLASS_LEVEL = 'class_level',
   LAUNCH = "launch",
   SCHOOL = 'school',
   SCHOOL_STAFF = 'school.staff',
   USER = 'user',
+  SECTION = 'section',
 }
 
 export class AppEndpoint {
   static AUTH_LOGIN = new AppEndpoint(AppEndpointKey.AUTH_LOGIN);
   static AUTH_REGISTER = new AppEndpoint(AppEndpointKey.AUTH_REGISTER);
+  static CLASS_LEVEL = new AppEndpoint(AppEndpointKey.CLASS_LEVEL);
   static LAUNCH = new AppEndpoint(AppEndpointKey.LAUNCH);
   static SCHOOL = new AppEndpoint(AppEndpointKey.SCHOOL);
   static SCHOOL_STAFF = new AppEndpoint(AppEndpointKey.SCHOOL_STAFF);
-  static USER = new AppEndpoint(AppEndpointKey.USER)
+  static SECTION = new AppEndpoint(AppEndpointKey.SECTION);
+  static USER = new AppEndpoint(AppEndpointKey.USER);
   private _base: string = "";
   private _path: string = "";
   private readonly _url: string
+
   constructor(key: string | AppEndpointKey) {
     this._url = this.constructUrl(key);
     this.validate();

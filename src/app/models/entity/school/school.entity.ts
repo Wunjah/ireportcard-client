@@ -1,6 +1,6 @@
-import {BaseModel} from "../base/base.model";
+import {BaseEntity} from "../base/base.entity";
 
-export class SchoolModel extends BaseModel {
+export class SchoolEntity extends BaseEntity {
   constructor(
     public name: string,
     public organisationId: number,
@@ -13,5 +13,6 @@ export class SchoolModel extends BaseModel {
     public paymentSettingId?: number,
     public deletedAt?: Date
   ) {
-    super();}
+    super();
+  }
 }

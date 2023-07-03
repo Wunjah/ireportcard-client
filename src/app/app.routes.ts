@@ -90,10 +90,15 @@ export class AppRoute {
   static APP_USER_PROFILE = new AppRoute(AppRouteKey.APP_USER_PROFILE);
   private _r: string = "";
   private _n: string = "";
-  private _routes: AppRouteType[] = [];
 
   constructor(key: AppRouteKey | string) {
     this.resolve(key);
+  }
+
+  private _routes: AppRouteType[] = [];
+
+  get routes() {
+    return this._routes;
   }
 
   get path() {
@@ -102,10 +107,6 @@ export class AppRoute {
 
   get name() {
     return this._n;
-  }
-
-  get routes() {
-    return this._routes;
   }
 
   private resolve(k: AppRouteKey | string) {

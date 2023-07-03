@@ -1,6 +1,6 @@
-import {BaseModel} from "../base/base.model";
+import {BaseEntity} from "../base/base.entity";
 
-export class UserModel extends BaseModel {
+export class UserEntity extends BaseEntity {
   constructor(
     public username: string,
     public email: string,

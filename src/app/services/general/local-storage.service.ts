@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
-import {AppService} from "../base/app.service";
+import {Injectable} from '@angular/core';
 import {DEFAULT_ID, DEFAULT_STRING} from "../../utils/base.util";
 import {NavGroupKey} from "../../utils/nav.util";
 
 @Injectable({
   providedIn: 'root'
 })
-export class LocalStorageService extends AppService<any>{
+export class LocalStorageService {
   private readonly prefix = '_transkript';
-  constructor() {super(); }
+
+  constructor() {
+  }
 
   set = (key: LocalStorageKey, value: any) => localStorage.setItem(this.resolveKey(key), value)
 
@@ -45,7 +46,7 @@ export type LocalStorageKey =
   'school_id' |
   'current_dashboard';
 
-export const AccessToken = <string> new LocalStorageService().get("access_token",) ?? DEFAULT_STRING,
-  SchoolId = <number | undefined> new LocalStorageService().get("school_id"),
-  OrganisationId = <number> new LocalStorageService().get("organisation_id") ?? DEFAULT_ID,
-  CurrentDashboard = <NavGroupKey | undefined> new LocalStorageService().get("current_dashboard");
+export const AccessToken = <string>new LocalStorageService().get("access_token",) ?? DEFAULT_STRING,
+  SchoolId = <number | undefined>new LocalStorageService().get("school_id"),
+  OrganisationId = <number>new LocalStorageService().get("organisation_id") ?? DEFAULT_ID,
+  CurrentDashboard = <NavGroupKey | undefined>new LocalStorageService().get("current_dashboard");

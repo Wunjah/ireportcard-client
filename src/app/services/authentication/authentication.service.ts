@@ -3,18 +3,18 @@ import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {AppService} from "../base/app.service";
 import {AppEndpoint} from "../../app.endpoints";
-import {LaunchResponse, LoginRequest, LoginResponse} from "../../models/authentication/login.model";
-import {RegisterResponse} from "../../models/authentication/register.model";
-import {UserPayload} from "../../models/user/user.payload";
+import {LaunchResponse, LoginRequest, LoginResponse} from "../../models/entity/authentication/login.model";
+import {RegisterResponse} from "../../models/entity/authentication/register.model";
+import {UserPayload} from "../../models/entity/user/user.payload";
 import {LocalStorageService} from "../general/local-storage.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService extends AppService<any> {
+export class AuthenticationService extends AppService<any, any> {
 
   constructor(private http: HttpClient, private _localStorage: LocalStorageService) {
-    super();
+    super(http);
   }
 
   launch = (): Observable<LaunchResponse> => {

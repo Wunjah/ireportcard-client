@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {RouterService} from "../../../../../services/general/router.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {SchoolService} from "../../../../../services/school/school.service";
-import {SchoolModel} from "../../../../../models/school/school.model";
-import {AppRoute, AppRoutes} from "../../../../../app.routes";
+import {SchoolEntity} from "../../../../../models/entity/school/school.entity";
+import {AppRoute} from "../../../../../app.routes";
 import {LocalStorageService} from "../../../../../services/general/local-storage.service";
 
 @Component({
@@ -12,7 +12,8 @@ import {LocalStorageService} from "../../../../../services/general/local-storage
   styleUrls: ['./org-schools-view.component.css']
 })
 export class OrgSchoolsViewComponent {
-  protected school?: SchoolModel;
+  protected school?: SchoolEntity;
+  protected readonly AppRoute = AppRoute;
 
   constructor(
     private _route: ActivatedRoute,
@@ -27,9 +28,7 @@ export class OrgSchoolsViewComponent {
     console.log(schoolId)
   }
 
-  protected readonly AppRoute = AppRoute;
-
   visitSchoolDashboardAction() {
-    this._routerService.switchDashboard("school-admin-nav");
+    this._routerService.switchDashboard("school-admin-nav", true);
   }
 }

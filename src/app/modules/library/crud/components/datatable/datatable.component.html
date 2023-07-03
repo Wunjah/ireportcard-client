@@ -9,13 +9,13 @@
           <table class="table table-striped datatable">
             <thead>
             <tr>
-              <th scope="col" *ngFor="let cell of table.header.cells">{{cell.value}}</th>
+              <th *ngFor="let cell of table.header.cells" scope="col">{{cell.value}}</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let row of table.rows">
-              <td scope="row" *ngFor="let cell of row.cells">
-                <button *ngIf="cell.isAction" (click)="cell.action?.onAction()"
+              <td *ngFor="let cell of row.cells" scope="row">
+                <button (click)="cell.action?.onAction()" *ngIf="cell.isAction"
                         class="rounded-0">
                   {{cell.action?.name}}
                 </button>

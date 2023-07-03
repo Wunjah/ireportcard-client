@@ -1,4 +1,5 @@
-abstract class Payload<T> {}
+abstract class Payload<T> {
+}
 
 export class ApiPayload extends Payload<any> {
   constructor(

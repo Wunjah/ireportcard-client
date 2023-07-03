@@ -1,19 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AppService} from "../base/app.service";
-import {AppEndpoint, AppEndpoints} from "../../app.endpoints";
+import {AppEndpoint} from "../../app.endpoints";
 import {HttpClient} from "@angular/common/http";
 import {SchoolStaffPayload} from "../../models/payload/school-staff.payload";
 import {Observable} from "rxjs";
-import {Id} from "../../models/base/base.model";
+import {Id} from "../../models/entity/base/base.entity";
 
 @Injectable({
   providedIn: 'root'
 })
-export class SchoolStaffService extends AppService<any> {
-
-
+export class SchoolStaffService extends AppService<any, SchoolStaffPayload> {
   constructor(private http: HttpClient) {
-    super(AppEndpoint.SCHOOL_STAFF);
+    super(http, AppEndpoint.SCHOOL_STAFF);
   }
 
   getPayloadBySchoolId = (schoolId: Id): Observable<SchoolStaffPayload> => {

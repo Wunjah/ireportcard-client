@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SchHomeComponent } from './sch-home.component';
+import {SchHomeComponent} from './sch-home.component';
 
 describe('SchHomeComponent', () => {
   let component: SchHomeComponent;

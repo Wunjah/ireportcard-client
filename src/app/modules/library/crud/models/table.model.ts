@@ -36,10 +36,12 @@ export class TableRow {
 export class TableHeader extends TableRow {
 
 }
+
 export interface TableRowActionDesc {
   name: string,
   action: (p: any) => void
 }
+
 export class TableRowAction<T> {
   constructor(
     public name: string,
