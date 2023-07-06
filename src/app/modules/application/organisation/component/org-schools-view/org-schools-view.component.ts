@@ -29,6 +29,6 @@ export class OrgSchoolsViewComponent {
   }
 
   visitSchoolDashboardAction() {
-    this._routerService.switchDashboard("school-admin-nav", true);
+    this._routerService.switchDashboard("school", true);
   }
 }

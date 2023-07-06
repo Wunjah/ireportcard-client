@@ -113,8 +113,3 @@ export module NavUtil {
     appUser
   ]);
 }
-
-export type NavGroupKey =
-  'org-admin-nav' |
-  'school-admin-nav' |
-  'student-nav';

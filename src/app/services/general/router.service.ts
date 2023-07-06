@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActivatedRoute, NavigationExtras, Router} from "@angular/router";
 import {AppRoute} from "../../app.routes";
 import {LocalStorageService} from "./local-storage.service";
-import {NavGroupKey} from "../../utils/nav.util";
+import {DashboardOption} from "../../app.types";
 
 @Injectable({
   providedIn: 'root'
@@ -38,21 +38,24 @@ export class RouterService {
     this.nav([this._router.url])
   }
 
-  switchDashboard = (key: NavGroupKey, reroute?: boolean) => {
-    const target = [];
-    switch (key) {
-      case "org-admin-nav":
+  switchDashboard = (option: DashboardOption, reroute?: boolean) => {
+    const target: string[] = [];
+    switch (option) {
+      case "organisation":
         target.push('/app/organisation');
         break;
-      case "school-admin-nav":
+      case "school":
         target.push('/app/school');
         break;
-      case "student-nav":
+      case "teacher":
+        target.push('/app/teacher');
+        break;
+      case "student":
         target.push('/app/student');
         break;
     }
 
-    this._localStorage.set("current_dashboard", key);
+    this._localStorage.set("current_dashboard", option);
     if (reroute) {
       this.nav(target, undefined, () => {
         this.reload();

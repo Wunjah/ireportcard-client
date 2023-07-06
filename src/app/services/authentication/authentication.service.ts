@@ -18,7 +18,14 @@ export class AuthenticationService extends AppService<any, any> {
   }
 
   launch = (): Observable<LaunchResponse> => {
-    return this.http.get<LaunchResponse>(AppEndpoint.LAUNCH.url)
+    const response = new Subject<LaunchResponse>();
+    this.http.get<LaunchResponse>(AppEndpoint.LAUNCH.url).subscribe(res => {
+      response.next(res);
+      response.complete();
+      this._localStorage.set("school_id", String(res.schoolId));
+      this._localStorage.set("organisation_id", String(res.organisationId));
+    });
+    return response.asObservable();
   }
 
   login = (request: LoginRequest): Observable<LoginResponse> => {
@@ -28,10 +35,10 @@ export class AuthenticationService extends AppService<any, any> {
         response.next(res);
         response.complete();
         this._localStorage.set("access_token", res.token)
-        this.launch().subscribe(launchResponse => {
-          this._localStorage.set("school_id", String(launchResponse.schoolId))
-          this._localStorage.set("organisation_id", String(launchResponse.organisationId))
-        })
+        this.launch().subscribe(res => {
+          this._localStorage.set("organisation_id", res.organisationId);
+          this._localStorage.set("school_id", res.schoolId);
+        });
       });
     return response.asObservable()
   }

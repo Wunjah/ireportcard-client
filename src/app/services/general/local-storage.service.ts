@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DEFAULT_ID, DEFAULT_STRING} from "../../utils/base.util";
-import {NavGroupKey} from "../../utils/nav.util";
+import {DashboardOption} from "../../app.types";
 
 @Injectable({
   providedIn: 'root'
@@ -49,4 +49,4 @@ export type LocalStorageKey =
 export const AccessToken = <string>new LocalStorageService().get("access_token",) ?? DEFAULT_STRING,
   SchoolId = <number | undefined>new LocalStorageService().get("school_id"),
   OrganisationId = <number>new LocalStorageService().get("organisation_id") ?? DEFAULT_ID,
-  CurrentDashboard = <NavGroupKey | undefined>new LocalStorageService().get("current_dashboard");
+  CurrentDashboard = <DashboardOption | undefined>new LocalStorageService().get("current_dashboard");

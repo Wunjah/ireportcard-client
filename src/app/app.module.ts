@@ -8,18 +8,24 @@ import {AppServiceInjectables} from "./injectables/app.service.injectables";
 import {HttpClientModule} from "@angular/common/http";
 import {AuthInterceptorInjectable, ErrorInterceptorInjectable} from "./injectables/app.interceptor.injectables";
 import {ShellComponent} from './components/shell/shell.component';
+import {DialogModule} from "primeng/dialog";
+import {SwitchComponent} from "./components/switch/switch.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent
+    ShellComponent,
+    SwitchComponent,
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    HttpClientModule,
-    SharedModule,
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+      BrowserAnimationsModule,
+        HttpClientModule,
+        SharedModule,
+        DialogModule,
+    ],
   providers: [
     AppServiceInjectables,
     AuthInterceptorInjectable,

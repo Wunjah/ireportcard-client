@@ -40,8 +40,11 @@ export class FormControlValue {
     return new FormControlValue(v);
   }
 
-  public static ofArray(v: any[]) {
-    return v.map(FormControlValue.of)
+  public static ofArray(v: any[], c?: (v: any) => any) {
+    if (c) {
+      return v.map(c).map(FormControlValue.of);
+    }
+    return v.map(FormControlValue.of);
   }
 }
 

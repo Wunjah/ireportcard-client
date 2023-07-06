@@ -17,6 +17,11 @@ import {
   AdminAssignSchoolFormComponent
 } from './form/components/admin-assign-school-form/admin-assign-school-form.component';
 import {DatafilterComponent} from './crud/components/datafilter/datafilter.component';
+import { ModalComponent } from './modal/modal/modal.component';
+import {DialogModule} from "primeng/dialog";
+import {CardModule} from "primeng/card";
+import {ButtonModule} from "primeng/button";
+import {DropdownModule} from "primeng/dropdown";
 
 
 @NgModule({
@@ -33,7 +38,8 @@ import {DatafilterComponent} from './crud/components/datafilter/datafilter.compo
     AdminRegisterFormComponent,
     SchoolAddFormComponent,
     AdminAssignSchoolFormComponent,
-    DatafilterComponent
+    DatafilterComponent,
+    ModalComponent
   ],
   exports: [
     HeaderComponent,
@@ -45,13 +51,20 @@ import {DatafilterComponent} from './crud/components/datafilter/datafilter.compo
     DatatableComponent,
     AdminRegisterFormComponent,
     SchoolAddFormComponent,
-    DatafilterComponent
+    DatafilterComponent,
+    CardModule,
+    ButtonModule,
+    DropdownModule,
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RouterLink
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        RouterLink,
+        DialogModule,
+      CardModule,
+      ButtonModule,
+      DropdownModule,
+    ]
 })
 export class LibraryModule {
 }

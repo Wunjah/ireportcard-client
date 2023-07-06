@@ -77,6 +77,7 @@ export const AppRoutes: AppRouteType = {
 enum AppRouteKey {
   AUTH_LOGIN = 'auth.login',
   AUTH_REGISTER = 'auth.register',
+  APP_ORGANISATION = 'app.organisation.',
   APP_ORGANISATION_SCHOOLS_VIEW = 'app.organisation.schools.view',
   APP_SCHOOL = 'app.school',
   APP_USER_PROFILE = 'app.user.profile',
@@ -85,6 +86,7 @@ enum AppRouteKey {
 export class AppRoute {
   static AUTH_LOGIN = new AppRoute(AppRouteKey.AUTH_LOGIN);
   static AUTH_REGISTER = new AppRoute(AppRouteKey.AUTH_REGISTER);
+  static APP_ORGANISATION = new AppRoute(AppRouteKey.APP_ORGANISATION);
   static APP_ORGANISATION_SCHOOLS_VIEW = new AppRoute(AppRouteKey.APP_ORGANISATION_SCHOOLS_VIEW);
   static APP_SCHOOL = new AppRoute(AppRouteKey.APP_SCHOOL);
   static APP_USER_PROFILE = new AppRoute(AppRouteKey.APP_USER_PROFILE);

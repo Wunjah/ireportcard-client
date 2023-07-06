@@ -26,3 +26,7 @@ export function isOrganisationRole(role?: Role): boolean {
 export function isSchoolRole(role?: Role): boolean {
   return role != undefined && schoolRoles().includes(role);
 }
+
+export const isSchoolAdmin = (role?: Role): boolean => role != undefined && role == Role.SCHOOL_ADMIN;
+export const isTeacher = (role?: Role): boolean => role != undefined && role == Role.TEACHER;
+export const isStudent = (role?: Role): boolean => role != undefined&& role == Role.STUDENT;

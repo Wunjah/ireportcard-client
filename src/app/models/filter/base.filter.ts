@@ -1,18 +1,18 @@
 import {HttpParams} from "@angular/common/http";
-import {Pair} from "../app.types";
-import {Id} from "../models/entity/base/base.entity";
-import {OrganisationId, SchoolId} from "../services/general/local-storage.service";
+import {CustomObject, Pair} from "../../app.types";
+import {Id} from "../entity/base/base.entity";
+import {OrganisationId, SchoolId} from "../../services/general/local-storage.service";
 
 export interface BaseFilterParams {
   id?: Id
 }
 
 export interface OrganisationBaseFilterParams extends BaseFilterParams {
-  organisationId: number
+  organisationId?: number
 }
 
 export interface SchoolBaseFilterParams extends OrganisationBaseFilterParams {
-  schoolId: number
+  schoolId?: number
 }
 
 export abstract class BaseFilter extends HttpParams {
@@ -20,8 +20,12 @@ export abstract class BaseFilter extends HttpParams {
 
   protected constructor(public p: { [p: string]: any }) {
     super();
-    if (typeof p === 'object') {
-      Object.entries(p)
+    this.construct(p);
+  }
+
+  private construct(obj: { [p: string]: any }) {
+    if (typeof obj === 'object') {
+      Object.entries(obj)
         .filter(([_, value]) => value !== undefined)
         .forEach(([key, value]) => {
           this.updateParam({key: key, value: value});
@@ -56,16 +60,24 @@ export abstract class BaseFilter extends HttpParams {
 }
 
 export class SchoolBaseFilter extends BaseFilter {
-  constructor(public params: SchoolBaseFilterParams) {
+  constructor(public params: SchoolBaseFilterParams, fill: boolean) {
+    if (fill) {
+      params.schoolId = SchoolId!!
+      params.organisationId = OrganisationId
+    }
     super(params);
   }
 
-  static simple() {
+  static simple(obj?: SchoolBaseFilterParams) {
     const params = <SchoolBaseFilterParams>{
       schoolId: SchoolId,
       organisationId: OrganisationId
     }
-    return new SchoolBaseFilter(params);
+    const filter = new SchoolBaseFilter(params, true);
+    if (obj) {
+      filter.update(obj);
+    }
+    return filter;
   }
 }
 

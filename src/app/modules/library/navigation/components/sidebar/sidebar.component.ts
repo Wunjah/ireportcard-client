@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {NavItem, NavItemGroup} from "../../models/nav-item.model";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {UserService} from "../../../../../services/user/user.service";
@@ -31,12 +31,17 @@ import {NavUtil} from "../../../../../utils/nav.util";
             </li>
           </ul>
         </li>
+        <li>
+          <button (click)="showSwitchDialogAction()" class="btn btn-primary">Switch</button>
+        </li>
       </ul>
     </aside>
   `
 })
 export class SidebarComponent implements OnInit {
-  navItemGroup = new NavItemGroup("main", [])
+  navItemGroup = new NavItemGroup("main", []);
+  @Output()
+  switchDialogEvent = new EventEmitter<boolean>();
 
   constructor(
     private _router: Router,
@@ -56,16 +61,13 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._userService.getByPrincipal().subscribe(res => {
-      if (isOrganisationRole(res.account?.role)) {
-        this.navItemGroup = NavUtil.ORGANISATION_ADMIN_NAV_GROUP
-      } else if (isSchoolRole(res.account?.role)) {
-        this.navItemGroup = NavUtil.SCHOOL_ADMIN_NAV_GROUP;
-      }
-    });
   }
 
   clickNavItemAction(item: NavItem) {
     this.navItemGroup.switchActive(item);
+  }
+
+  showSwitchDialogAction() {
+    this.switchDialogEvent.emit(true);
   }
 }

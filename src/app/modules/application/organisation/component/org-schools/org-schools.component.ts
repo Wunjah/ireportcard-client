@@ -21,6 +21,7 @@ export class OrgSchoolsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(OrganisationId)
     this._schoolService.getAllByOrganisation(OrganisationId).subscribe(res => {
       const tableAction = {
         name: "View",

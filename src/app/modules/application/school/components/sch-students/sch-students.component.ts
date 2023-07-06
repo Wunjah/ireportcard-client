@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {TableModel} from "../../../../library/crud/models/table.model";
 import {UserService} from "../../../../../services/user/user.service";
-import {UserFilter} from "../../../../../filter/user/user.filter";
+import {UserFilter} from "../../../../../models/filter/user/user.filter";
 import {Role} from "../../../../../models/entity/base/role.enum";
 import {Gender, genderValues} from "../../../../../models/entity/base/gender.enum";
 import {FormModel} from "../../../../library/form/models/form/form.model";

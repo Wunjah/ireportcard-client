@@ -2,13 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {FilterComponent} from "../../../../library/component/filter.component";
 import {FormModel} from "../../../../library/form/models/form/form.model";
 import {TableModel} from "../../../../library/crud/models/table.model";
-import {ClassLevelFilter} from "../../../../../filter/class/class-level.filter";
+import {ClassLevelFilter} from "../../../../../models/filter/class/class-level.filter";
 import {OrganisationId, SchoolId} from "../../../../../services/general/local-storage.service";
 import {FormControlModel, FormControlValue} from "../../../../library/form/models/form/form-control.model";
 import {ClassLevelService} from "../../../../../services/class-level/class-level.service";
 import {ClassLevelUtil} from "../../../../../utils/class-level.util";
 import {SectionService} from "../../../../../services/school/section.service";
-import {SchoolBaseFilter} from "../../../../../filter/base.filter";
+import {SchoolBaseFilter} from "../../../../../models/filter/base.filter";
+import {SectionPayload} from "../../../../../models/payload/section.payload";
 
 @Component({
   selector: 'app-sch-classes',
@@ -23,8 +24,6 @@ export class SchClassesComponent implements OnInit, FilterComponent {
   table?: TableModel;
   filter: ClassLevelFilter;
 
-  private readonly sections: any[] = [];
-
   constructor(
     private _classLevelService: ClassLevelService,
     private _sectionService: SectionService,
@@ -38,9 +37,8 @@ export class SchClassesComponent implements OnInit, FilterComponent {
 
   ngOnInit() {
     this._sectionService.list(SchoolBaseFilter.simple()).subscribe(res => {
-      this.sections.push(...res);
-      this.filterForm.attribs.formControls[1].attribs.values = res.map(r => FormControlValue.of(r.section));
-      console.log(this.sections);
+      this.filterForm.attribs.formControls[1].attribs.values =
+        FormControlValue.ofArray(res, (s: SectionPayload) => s.section);
     });
   }
 

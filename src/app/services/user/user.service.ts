@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UserPayload} from "../../models/entity/user/user.payload";
 import {AppEndpoint} from "../../app.endpoints";
-import {UserFilter} from "../../filter/user/user.filter";
+import {UserFilter} from "../../models/filter/user/user.filter";
 import {DEFAULT_ID} from "../../utils/base.util";
 import {UserEntity} from "../../models/entity/user/user.entity";
 

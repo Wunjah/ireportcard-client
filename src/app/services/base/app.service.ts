@@ -1,7 +1,7 @@
 import {HttpClient} from "@angular/common/http";
 import {AppEndpoint} from "../../app.endpoints";
 import {Injectable} from "@angular/core";
-import {BaseFilter} from "../../filter/base.filter";
+import {BaseFilter} from "../../models/filter/base.filter";
 import {Observable} from "rxjs";
 
 export interface IAppService<T> {

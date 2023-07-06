@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ShellComponent} from "./components/shell/shell.component";
+import {SwitchComponent} from "./components/switch/switch.component";
 
 const routes: Routes = [
   {

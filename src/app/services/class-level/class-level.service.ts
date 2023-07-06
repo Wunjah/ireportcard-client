@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {AppEndpoint} from "../../app.endpoints";
 import {Observable} from "rxjs";
 import {ClassLevelPayload} from "../../models/payload/class-level.payload";
-import {ClassLevelFilter} from "../../filter/class/class-level.filter";
+import {ClassLevelFilter} from "../../models/filter/class/class-level.filter";
 import {ClassLevelModel} from "../../models/entity/class-level/class-level.model";
 
 @Injectable({
