@@ -10,7 +10,6 @@ import {SchTeachersAddComponent} from "./components/sch-teachers-add/sch-teacher
 import {SchDepartmentsComponent} from "./components/sch-departments/sch-departments.component";
 import {SchDepartmentsViewComponent} from "./components/sch-departments-view/sch-departments-view.component";
 import {SchSettingsComponent} from "./components/sch-settings/sch-settings.component";
-import {SchSettingsFeesComponent} from "./components/sch-settings-fees/sch-settings-fees.component";
 
 const routes: Routes = [
   {
@@ -29,7 +28,7 @@ const routes: Routes = [
         component: SchStudentsAddComponent
       }
     ]
-  },{
+  }, {
     path: 'teachers',
     children: [
       {

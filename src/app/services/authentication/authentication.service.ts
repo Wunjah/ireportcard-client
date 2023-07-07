@@ -39,7 +39,7 @@ export class AuthenticationService extends AppService<any, any> {
   login = (request: LoginRequest): Observable<LoginResponse> => {
     const response = new Subject<LoginResponse>();
     this.http.post<LoginResponse>(AppEndpoint.AUTH_LOGIN.url, request)
-      .subscribe( {
+      .subscribe({
         next: (res) => {
           response.next(res);
           this._localStorage.set("access_token", res.token);

@@ -15,7 +15,8 @@ import {AppRoute} from "../../app.routes";
       <router-outlet></router-outlet>
     </app-main>
     <app-footer></app-footer>
-    <p-dialog header="Switch Dashboard" [modal]="true" [(visible)]="switchDialogVisible" [style]="{width: '50vw', height: '30vw'}">
+    <p-dialog header="Switch Dashboard" [modal]="true" [(visible)]="switchDialogVisible"
+              [style]="{width: '50vw', height: '30vw'}">
       <app-switch (cancelSwitchDialogEvent)="switchDialogEventHandler($event)"></app-switch>
     </p-dialog>
   `

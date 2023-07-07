@@ -1,4 +1,4 @@
-import {Component, Type} from '@angular/core';
+import {Component} from '@angular/core';
 import {TableModel} from "../../../../library/crud/models/table.model";
 import {UserService} from "../../../../../services/user/user.service";
 import {UserFilter} from "../../../../../models/filter/user/user.filter";
@@ -7,7 +7,6 @@ import {Gender, genderValues} from "../../../../../models/entity/base/gender.enu
 import {FormModel} from "../../../../library/form/models/form/form.model";
 import {FormControlModel, FormControlValue} from "../../../../library/form/models/form/form-control.model";
 import {OrganisationId, SchoolId} from "../../../../../services/general/local-storage.service";
-import {UserUtil} from "../../../../../utils/user.util";
 import {UserPayload} from "../../../../../models/entity/user/user.payload";
 import {DataComponent} from "../../../../library/component/data.component";
 
@@ -18,7 +17,7 @@ import {DataComponent} from "../../../../library/component/data.component";
     <app-table-list-users [title]="title" [role]="Role.STUDENT" [filter]="filter"></app-table-list-users>
   `
 })
-export class SchStudentsComponent implements DataComponent<UserPayload[]>{
+export class SchStudentsComponent implements DataComponent<UserPayload[]> {
   table?: TableModel;
   filter: UserFilter = new UserFilter({
     approved: true,

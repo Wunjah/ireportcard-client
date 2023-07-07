@@ -1,6 +1,6 @@
 import {SchoolBaseFilter, SchoolBaseFilterParams} from "../base.filter";
 
-export interface DepartmentFilterParams extends SchoolBaseFilterParams{
+export interface DepartmentFilterParams extends SchoolBaseFilterParams {
   name?: string
   hodId?: number
 }

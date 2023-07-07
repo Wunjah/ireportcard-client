@@ -1,8 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserService} from "../../services/user/user.service";
 import {Role} from "../../models/entity/base/role.enum";
-import {SubmitForm} from "../../modules/library/form/components/form/submit.form";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder} from "@angular/forms";
 import {DashboardOption} from "../../app.types";
 import {RouterService} from "../../services/general/router.service";
 import {SchoolService} from "../../services/school/school.service";
@@ -44,7 +43,7 @@ import {SchoolEntity} from "../../models/entity/school/school.entity";
   `
 })
 export class SwitchComponent implements OnInit {
-  switchProps = <{option?: DashboardOption, schoolId?: number}>{
+  switchProps = <{ option?: DashboardOption, schoolId?: number }>{
     option: undefined,
     schoolId: undefined
   }
@@ -68,10 +67,18 @@ export class SwitchComponent implements OnInit {
       this.dashboardOptions = [];
       if (res.account) {
         switch (res.account.role) {
-          case Role.ORGANISATION_ADMIN: this.dashboardOptions = ['organisation', 'school']; break;
-          case Role.SCHOOL_ADMIN: this.dashboardOptions = ['school']; break;
-          case Role.TEACHER: this.dashboardOptions = ['teacher']; break;
-          case Role.STUDENT: this.dashboardOptions = ['student']; break;
+          case Role.ORGANISATION_ADMIN:
+            this.dashboardOptions = ['organisation', 'school'];
+            break;
+          case Role.SCHOOL_ADMIN:
+            this.dashboardOptions = ['school'];
+            break;
+          case Role.TEACHER:
+            this.dashboardOptions = ['teacher'];
+            break;
+          case Role.STUDENT:
+            this.dashboardOptions = ['student'];
+            break;
         }
       }
     });

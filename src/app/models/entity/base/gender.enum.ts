@@ -9,4 +9,6 @@ export const genderValues = Object.values(Gender)
   .map(v => v.toString())
 
 export const genderOptions = Object.values(Gender)
-  .map(v => {return {value: v.toString()}})
+  .map(v => {
+    return {value: v.toString()}
+  })

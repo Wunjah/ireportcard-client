@@ -34,7 +34,9 @@ export class RouterService {
     });
   }
 
-  ;reload() {
+  ;
+
+  reload() {
     this.nav([this._router.url], undefined, () => location.reload())
   }
 

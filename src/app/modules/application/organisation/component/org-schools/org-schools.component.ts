@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {TableModel} from "../../../../library/crud/models/table.model";
 import {SchoolService} from "../../../../../services/school/school.service";
 import {OrganisationId} from "../../../../../services/general/local-storage.service";
-import {SchoolUtil} from "../../../../../utils/school.util";
-import {Id} from "../../../../../models/entity/base/base.entity";
 import {RouterService} from "../../../../../services/general/router.service";
 import {AppRoute} from "../../../../../app.routes";
 import {SchoolEntity} from "../../../../../models/entity/school/school.entity";

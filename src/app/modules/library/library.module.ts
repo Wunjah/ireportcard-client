@@ -17,7 +17,7 @@ import {
   AdminAssignSchoolFormComponent
 } from './form/components/admin-assign-school-form/admin-assign-school-form.component';
 import {DatafilterComponent} from './crud/components/datafilter/datafilter.component';
-import { ModalComponent } from './modal/modal/modal.component';
+import {ModalComponent} from './modal/modal/modal.component';
 import {DialogModule} from "primeng/dialog";
 import {CardModule} from "primeng/card";
 import {ButtonModule} from "primeng/button";
@@ -26,14 +26,14 @@ import {TableModule} from "primeng/table";
 import {DividerModule} from "primeng/divider";
 import {TreeModule} from "primeng/tree";
 import {InputTextModule} from "primeng/inputtext";
-import {Calendar, CalendarModule} from "primeng/calendar";
+import {CalendarModule} from "primeng/calendar";
 import {FileUploadModule} from "primeng/fileupload";
 import {ToggleButtonModule} from "primeng/togglebutton";
-import { FormTeacherAddComponent } from './form/components/form-teacher-add/form-teacher-add.component';
+import {FormTeacherAddComponent} from './form/components/form-teacher-add/form-teacher-add.component';
 import {PasswordModule} from "primeng/password";
-import { TableListClassesComponent } from './crud/components/table-list-classes/table-list-classes.component';
+import {TableListClassesComponent} from './crud/components/table-list-classes/table-list-classes.component';
 import {TableListUsersComponent} from "./crud/components/table-list-users/table-list-users.component";
-import { TableListDepartmentsComponent } from './crud/components/table-list-departments/table-list-departments.component';
+import {TableListDepartmentsComponent} from './crud/components/table-list-departments/table-list-departments.component';
 import {TabViewModule} from "primeng/tabview";
 import {BreadcrumbModule} from "primeng/breadcrumb";
 import {InputNumberModule} from "primeng/inputnumber";

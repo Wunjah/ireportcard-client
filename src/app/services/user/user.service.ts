@@ -17,7 +17,7 @@ export class UserService extends AppService<UserEntity, UserPayload> {
   }
 
 
-  getById = (userId: number): Observable<UserPayload> =>  {
+  getById = (userId: number): Observable<UserPayload> => {
     return this.http.get<UserPayload>(this.urlWithPath(`/id/${userId}`));
   }
   getByPrincipal = (): Observable<UserPayload> => {

@@ -1,6 +1,4 @@
 import {AppRoute} from "../../../../app.routes";
-import {MenuItemContent} from "primeng/menu";
-import {MenuItem} from "primeng/api";
 
 export class BreadCrumbModel {
   constructor(public route: AppRoute) {
@@ -18,6 +16,9 @@ export class BreadCrumbModel {
   }
 }
 
-export interface BreadCrumbMenuItem {routerLink: string, label: string}
+export interface BreadCrumbMenuItem {
+  routerLink: string,
+  label: string
+}
 
 

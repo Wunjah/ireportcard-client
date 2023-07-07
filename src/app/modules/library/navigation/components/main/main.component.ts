@@ -40,6 +40,7 @@ export class MainComponent implements OnInit {
     return this.resolve(ar.firstChild, p);
   }
 }
+
 export const breadCrumbMenuItems = (route: AppRoute): BreadCrumbMenuItem[] => {
   return route.routes.map((r, i) => {
     const resolvedRoute = route.routes.slice(0, i + 1).reduce((prev, curr) => {
