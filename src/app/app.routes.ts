@@ -86,8 +86,8 @@ enum AppRouteKey {
 export class AppRoute {
   static AUTH_LOGIN = new AppRoute(AppRouteKey.AUTH_LOGIN);
   static AUTH_REGISTER = new AppRoute(AppRouteKey.AUTH_REGISTER);
-  static APP_ORGANISATION = new AppRoute(AppRouteKey.APP_ORGANISATION);
-  static APP_ORGANISATION_SCHOOLS_VIEW = new AppRoute(AppRouteKey.APP_ORGANISATION_SCHOOLS_VIEW);
+  static APP_ORG = new AppRoute(AppRouteKey.APP_ORGANISATION);
+  static APP_ORG_SCHOOLS_VIEW = new AppRoute(AppRouteKey.APP_ORGANISATION_SCHOOLS_VIEW);
   static APP_SCHOOL = new AppRoute(AppRouteKey.APP_SCHOOL);
   static APP_USER_PROFILE = new AppRoute(AppRouteKey.APP_USER_PROFILE);
   private _r: string = "";

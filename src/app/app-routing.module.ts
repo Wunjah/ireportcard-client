@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ShellComponent} from "./components/shell/shell.component";
-import {SwitchComponent} from "./components/switch/switch.component";
+import {authenticationGuard} from "./guard/authentication.guard";
 
 const routes: Routes = [
   {
@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: 'app',
     component: ShellComponent,
+    canActivate: [authenticationGuard],
     children: [
       {
         path: 'user',

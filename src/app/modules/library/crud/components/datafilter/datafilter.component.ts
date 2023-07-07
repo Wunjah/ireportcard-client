@@ -10,29 +10,39 @@ import {SubmitForm} from "../../../form/components/form/submit.form";
   styleUrls: ['./datafilter.component.css'],
   template: `
     <div class="p-2">
-      <button (click)="filterDiv.hidden = !filterDiv.hidden">Filter</button>
-      <div #filterDiv [hidden]="true">
-        <form class="row g-3" [formGroup]="form">
-          <div *ngFor="let control of formControlModels" class="col-md-4">
-            <label for="{{control.name}}" class="form-label">{{control.label}}</label>
+      <p-toggleButton
+        [(ngModel)]="filterHidden"
+        class="p-button-sm p-button-raised"
+        onLabel="Filter"
+        offLabel="Filter"
+        iconPos="right"
+        onIcon="fas fa-light fa-chevron-up"
+        offIcon="fas fa-light fa-chevron-down">
+      </p-toggleButton>
+      <div *ngIf="filterHidden" class="py-4">
+        <form class="formgrid grid" [formGroup]="form">
+          <div *ngFor="let control of formControlModels" class="col-12 md:col-4 field">
             <input
-              *ngIf="control.type != 'select'"
+              *ngIf="control.type == 'text' || control.type == undefined"
+              pInputText
+              [placeholder]="control.label"
               (change)="submit()"
-              type="{{control.type ?? 'text'}}" class="form-control"
               formControlName="{{control.name}}"
-              id="{{control.name}}">
-            <select
+              id="{{control.name}}"
+              class="w-full p-inputtext-sm">
+            <p-dropdown
               *ngIf="control.type == 'select'"
-              (change)="submit()"
-              class="form-select form-control"
               formControlName="{{control.name}}"
-              id="{{control.name}}">
-              <option *ngFor="let controlValue of control.values" [value]="controlValue.id">
-                {{controlValue.name | titlecase}}
-              </option>
-            </select>
+              id="{{control.name}}"
+              styleClass="w-full p-inputtext-sm"
+              (onChange)="submit()"
+              [placeholder]="control.label"
+              [options]="controlOptions(control)"
+              [optionValue]="'id'"
+              [optionLabel]="'name'">
+            </p-dropdown>
           </div>
-          <div class="text-center gap-2">
+          <div class="text-center gap-2 col-12">
             <button type="submit" class="btn btn-primary" (click)="submit()">Filter</button>&nbsp;
             <button type="reset" class="btn btn-secondary" (click)="form.reset()">Reset</button>
           </div>
@@ -52,6 +62,7 @@ export class DatafilterComponent implements OnInit, SubmitForm {
   form: FormGroup = this._fb.group({});
 
   private controls: [string, any][] = [];
+  filterHidden: boolean = false;
 
   constructor(private _fb: FormBuilder) {
 
@@ -66,6 +77,10 @@ export class DatafilterComponent implements OnInit, SubmitForm {
   submit() {
     this.submitEvent.emit(this.form.value);
   }
+
+  controlOptions = (control: FormControlAttributes) => control.values?.map(v => {
+    return {id: v.id, name: v.name}
+  });
 }
 
 

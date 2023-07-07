@@ -1,0 +1,22 @@
+<app-data-filter [formModel]="filterForm" (submitEvent)="filterAction($event)"></app-data-filter>
+
+<p-table [title]="title" [value]="data">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Order</th>
+      <th>Sub classes</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-d>
+    <tr>
+      <td>{{d.classLevel.id}}</td>
+      <td>{{d.classLevel.name}}</td>
+      <td>{{d.classLevel.order}}</td>
+      <td>{{d.classLevelSubs.length}}</td>
+      <td></td>
+    </tr>
+  </ng-template>
+</p-table>

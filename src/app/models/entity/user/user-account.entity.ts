@@ -2,7 +2,7 @@ import {Gender} from "../base/gender.enum";
 import {Role} from "../base/role.enum";
 import {BaseEntity} from "../base/base.entity";
 
-export class UserAccountModel extends BaseEntity {
+export class UserAccountEntity extends BaseEntity {
   constructor(
     public accountId: string = "",
     public gender: Gender,

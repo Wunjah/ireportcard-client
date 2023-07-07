@@ -15,8 +15,7 @@ import {SectionPayload} from "../../../../../models/payload/section.payload";
   selector: 'app-sch-classes',
   styleUrls: ['./sch-classes.component.css'],
   template: `
-    <app-data-filter [formModel]="filterForm" (submitEvent)="filterAction($event)"></app-data-filter>
-    <app-datatable *ngIf="table" [table]="table"></app-datatable>
+    <app-table-list-classes></app-table-list-classes>
   `
 })
 export class SchClassesComponent implements OnInit, FilterComponent {

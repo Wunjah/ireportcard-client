@@ -1,7 +1,7 @@
 import {SchoolEntity} from "../entity/school/school.entity";
-import {UserAccountModel} from "../entity/user/user-account.model";
+import {UserAccountEntity} from "../entity/user/user-account.entity";
 
 export interface SchoolStaffPayload {
   school: SchoolEntity
-  staff: UserAccountModel[]
+  staff: UserAccountEntity[]
 }

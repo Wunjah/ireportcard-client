@@ -9,6 +9,9 @@ export const AppEndpoints: AppEndpointType = {
     },
     register: {
       main: '/register'
+    },
+    check: {
+      main: '/check'
     }
   },
   class_level: {
@@ -44,6 +47,7 @@ type AppEndpointType = {
 }
 
 enum AppEndpointKey {
+  AUTH_CHECK = 'auth.check',
   AUTH_LOGIN = "auth.login",
   AUTH_REGISTER = "auth.register",
   CLASS_LEVEL = 'class_level',
@@ -59,6 +63,7 @@ enum AppEndpointKey {
 export class AppEndpoint {
   static AUTH_LOGIN = new AppEndpoint(AppEndpointKey.AUTH_LOGIN);
   static AUTH_REGISTER = new AppEndpoint(AppEndpointKey.AUTH_REGISTER);
+  static AUTH_CHECK = new AppEndpoint(AppEndpointKey.AUTH_CHECK);
   static CLASS_LEVEL = new AppEndpoint(AppEndpointKey.CLASS_LEVEL);
   static DEPARTMENT = new AppEndpoint(AppEndpointKey.DEPARTMENT);
   static LAUNCH = new AppEndpoint(AppEndpointKey.LAUNCH);

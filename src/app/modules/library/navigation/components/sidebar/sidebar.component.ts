@@ -4,57 +4,75 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {UserService} from "../../../../../services/user/user.service";
 import {isOrganisationRole, isSchoolRole} from "../../../../../models/entity/base/role.enum";
 import {NavUtil} from "../../../../../utils/nav.util";
+import {TreeNode} from "primeng/api";
+import {TreeNodeSelectEvent} from "primeng/tree";
+import {RouterService} from "../../../../../services/general/router.service";
 
 @Component({
   selector: 'app-sidebar',
   styleUrls: ['./sidebar.component.css'],
   template: `
     <aside id="sidebar" class="sidebar">
-      <ul class="sidebar-nav" id="sidebar-nav">
-        <li *ngFor="let navItem of navItemGroup.navItems" class="nav-item {{navItem.active ? 'show' : ''}}">
-          <span class="nav-link collapsed"
-                [attr.data-bs-target]="'#' + navItem.code"
-                (click)="clickNavItemAction(navItem)"
-                data-bs-toggle="collapse">
-            <a [routerLink]="[navItem.link]">
-              <i class="{{navItem.icon}}"></i>
-            </a>
-            <span>{{navItem.name}}</span>
-            <i *ngIf="navItem.children" class="bi bi-chevron-down ms-auto"></i>
-          </span>
-          <ul id="{{navItem.code}}" *ngIf="navItem.children" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-            <li *ngFor="let childItem of navItem.children" (click)="clickNavItemAction(childItem)">
-              <a [routerLink]="[navItem.link + childItem.link]" class="{{childItem.active ? 'active' : ''}}">
-                <i class="bi bi-circle"></i>
-                <span>{{childItem.name}}</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <button (click)="showSwitchDialogAction()" class="btn btn-primary">Switch</button>
-        </li>
-      </ul>
+      <div class="flex flex-column">
+        <div class="mb-3">
+          <p-tree
+            [value]="navItemTree"
+            (onNodeSelect)="nodeSelectedAction($event)"
+            class="md:w-30rem"
+            selectionMode="single">
+          </p-tree>
+        </div>
+        <div class="align-baseline">
+          <div class="grid">
+            <div class="{{button.class}}" *ngFor="let button of actionButtons">
+              <p-button
+                label="{{button.label}}"
+                styleClass="p-button-raised p-button-sm w-full {{button.style}}"
+                icon="fas fa-light fa-{{button.icon}}"
+                (click)="button.action()"></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
     </aside>
   `
 })
 export class SidebarComponent implements OnInit {
-  navItemGroup = new NavItemGroup("main", []);
+  actionButtons = [
+    {
+      label: "Switch",
+      icon: "repeat",
+      class: "col-12 md:col-6",
+      style: "",
+      action: () => this.switchDialogEvent.emit(true)
+    },
+    {
+      label: "Logout",
+      icon: "right-from-bracket",
+      class: "col-12 md:col-6",
+      style: "p-button-danger",
+      action: () => this.logoutEvent.emit(true)
+    },
+  ]
+  navItemTree = NavUtil.ORGANISATION_ADMIN_NAV_TREE;
   @Output()
   switchDialogEvent = new EventEmitter<boolean>();
+  @Output()
+  logoutEvent = new EventEmitter<boolean>();
 
   constructor(
     private _router: Router,
     private _route: ActivatedRoute,
+    private _routerService: RouterService,
     private _userService: UserService,
   ) {
     this._router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const url = event.url;
         if (url.startsWith("/app/organisation")) {
-          this.navItemGroup = NavUtil.ORGANISATION_ADMIN_NAV_GROUP;
+          this.navItemTree = NavUtil.ORGANISATION_ADMIN_NAV_TREE;
         } else if (url.startsWith("/app/school")) {
-          this.navItemGroup = NavUtil.SCHOOL_ADMIN_NAV_GROUP;
+          this.navItemTree = NavUtil.SCHOOL_ADMIN_NAV_TREE;
         }
       }
     });
@@ -63,11 +81,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
 
-  clickNavItemAction(item: NavItem) {
-    this.navItemGroup.switchActive(item);
-  }
-
-  showSwitchDialogAction() {
-    this.switchDialogEvent.emit(true);
+  nodeSelectedAction($event: TreeNodeSelectEvent) {
+    const node = $event.node;
+    this._routerService.nav([node.data]);
   }
 }

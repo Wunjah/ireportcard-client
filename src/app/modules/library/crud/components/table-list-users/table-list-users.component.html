@@ -1,0 +1,22 @@
+<app-data-filter [formModel]="dataFilterForm" (submitEvent)="dataFilterAction($event)"></app-data-filter>
+
+<p-table [title]="title" [value]="data">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Full Name</th>
+      <th>Gender</th>
+      <th>Approved</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-d>
+    <tr>
+      <td>{{d.user.id}}</td>
+      <td>{{d.user.username}}</td>
+      <td>{{d.user.firstname + ' ' + d.user.lastname}}</td>
+      <td>{{d.account.gender | titlecase}}</td>
+      <td>{{d.user.approved}}</td>
+    </tr>
+  </ng-template>
+</p-table>

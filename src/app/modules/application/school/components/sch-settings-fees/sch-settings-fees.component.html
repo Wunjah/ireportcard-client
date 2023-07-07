@@ -1,0 +1,38 @@
+<div class="surface-card">
+  <form class="formgrid grid">
+    <div class="col-12 md:col-6">
+      <div class="pb-3">
+        <span class="text-xl">Fee Details</span>
+      </div>
+      <div class="grid">
+        <div class="field col-12">
+          <label for="amount" class="block mb-2">Amount</label>
+          <input pInputText id="amount" type="number" class="w-full p-inputtext-sm">
+        </div>
+        <div class="field col-12">
+          <label for="effective" class="block mb-2">Effective Date</label>
+          <p-calendar id="effective" styleClass="w-full p-inputtext-sm"></p-calendar>
+        </div>
+        <div class="field col-12">
+          <label for="effective" class="block mb-2">Apply to class levels</label>
+          <p-multiSelect placeholder="Select Class Level" [options]="[]" styleClass="w-full p-inputtext-sm"></p-multiSelect>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12 md:col-6">
+      <div class="pb-3">
+        <span class="text-xl">Previous Fee Details</span>
+      </div>
+      <div class="grid">
+        <div class="field col-12">
+          <span for="amount" class="block mb-2">No fee configuration</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 gap-2 flex flex-wrap gap-1">
+      <p-button label="Save" styleClass="p-button-sm"></p-button>
+      <p-button label="Cancel" styleClass="p-button-sm p-button-secondary"></p-button>
+    </div>
+  </form>
+</div>

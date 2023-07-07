@@ -19,6 +19,10 @@ body {
   color: #444444;
 }
 
+.app-bg-body {
+  background-color: #f6f9ff
+}
+
 a {
   color: #4154f1;
   text-decoration: none;

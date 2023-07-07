@@ -11,6 +11,7 @@ import {ShellComponent} from './components/shell/shell.component';
 import {DialogModule} from "primeng/dialog";
 import {SwitchComponent} from "./components/switch/switch.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     imports: [
         AppRoutingModule,
         BrowserModule,
-      BrowserAnimationsModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         SharedModule,
         DialogModule,
+        FormsModule,
     ],
   providers: [
     AppServiceInjectables,

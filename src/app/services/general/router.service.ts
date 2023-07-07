@@ -34,8 +34,8 @@ export class RouterService {
     });
   }
 
-  reload() {
-    this.nav([this._router.url])
+  ;reload() {
+    this.nav([this._router.url], undefined, () => location.reload())
   }
 
   switchDashboard = (option: DashboardOption, reroute?: boolean) => {
