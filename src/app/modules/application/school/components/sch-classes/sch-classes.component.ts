@@ -28,8 +28,8 @@ export class SchClassesComponent implements OnInit, FilterComponent {
     private _sectionService: SectionService,
   ) {
     this.filter = new ClassLevelFilter({
-      schoolId: SchoolId!!,
-      organisationId: OrganisationId
+      schoolId: SchoolId()!!,
+      organisationId: OrganisationId()
     });
     this.refresh();
   }

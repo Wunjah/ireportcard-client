@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SchSettingsCyclesComponent } from './sch-settings-cycles.component';
+import {SchSettingsCyclesComponent} from './sch-settings-cycles.component';
 
 describe('SchSettingsCyclesComponent', () => {
   let component: SchSettingsCyclesComponent;

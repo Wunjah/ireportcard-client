@@ -1,0 +1,50 @@
+<div class="surface-section">
+  <div class="border-round mb-3 p-2 md:p-4">
+    <div class="font-bold py-2 md:py-4">
+      <span class="text-2xl">Academic Year Cycle</span>
+    </div>
+    <form [formGroup]="form" class="formgrid grid">
+      <div class="col-12 md:col-6 border-round">
+        <div class="field grid">
+          <label class="col-12 mb-2 md:col-3 md:mb-0" for="startYear">Start Year</label>
+          <div class="col-12 md:col-9">
+            <input  type="number" class="w-full" formControlName="startYear" (change)="endYearValue()" id="startYear" pInputText>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 border-round">
+        <div class="field grid">
+          <label class="col-12 mb-2 md:col-3 md:mb-0" for="endYear">End Year</label>
+          <div class="col-12 md:col-9">
+            <input type="number" [value]="endYearValue()" class="w-full" formControlName="endYear" id="endYear" pInputText>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 border-round">
+        <div class="field grid">
+          <label class="col-12 mb-2 md:col-3 md:mb-0" for="openingDate">Opening Date</label>
+          <div class="col-12 md:col-9">
+            <p-calendar formControlName="openingDate" id="openingDate" styleClass="w-full"></p-calendar>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 border-round">
+        <div class="field grid">
+          <label class="col-12 mb-2 md:col-3 md:mb-0" for="closingDate">Closing Date</label>
+          <div class="col-12 md:col-9">
+            <p-calendar formControlName="closingDate" id="closingDate" styleClass="w-full"></p-calendar>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 md:col-3">
+        <p-button
+          (onClick)="cycleActionButton().action()"
+          [disabled]="cycleActionButton().disabled"
+          type="button"
+          label="{{cycleActionButton().text}}"
+          styleClass="p-button-sm w-full">
+        </p-button>
+      </div>
+    </form>
+  </div>
+</div>

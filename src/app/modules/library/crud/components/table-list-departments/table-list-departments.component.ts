@@ -23,7 +23,7 @@ export class TableListDepartmentsComponent
   constructor(
     private _departmentService: DepartmentService,
     private _userService: UserService,
-    ) {
+  ) {
   }
 
   ngOnInit(): void {

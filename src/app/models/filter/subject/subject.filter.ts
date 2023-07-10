@@ -1,7 +1,6 @@
 import {SchoolBaseFilter, SchoolBaseFilterParams} from "../base.filter";
-import {OrganisationId, SchoolId} from "../../../services/general/local-storage.service";
 
-export interface SubjectFilterParams extends SchoolBaseFilterParams{
+export interface SubjectFilterParams extends SchoolBaseFilterParams {
   name?: string
   hodId?: number
 }

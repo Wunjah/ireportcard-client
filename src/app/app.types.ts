@@ -7,4 +7,4 @@ export type CustomObject = {
   [p: string]: any
 }
 
-export type DashboardOption = 'school' | 'organisation'| 'student' | 'teacher';
+export type DashboardOption = 'school' | 'organisation' | 'student' | 'teacher';

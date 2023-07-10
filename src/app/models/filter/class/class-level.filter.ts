@@ -1,4 +1,4 @@
-import {BaseFilter, SchoolBaseFilter} from "../base.filter";
+import {SchoolBaseFilter} from "../base.filter";
 
 interface ClassLevelFilterParams {
   schoolId: number

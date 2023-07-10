@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {DataComponent} from "../../../component/data.component";
 import {ClassLevelPayload} from "../../../../../models/payload/class-level.payload";
 import {FilterComponent} from "../../../component/filter.component";
@@ -27,8 +27,8 @@ export class TableListClassesComponent implements DataComponent<ClassLevelPayloa
     private _sectionService: SectionService,
   ) {
     this.filter = new ClassLevelFilter({
-      schoolId: SchoolId!!,
-      organisationId: OrganisationId
+      schoolId: SchoolId()!!,
+      organisationId: OrganisationId()
     });
     this.refresh();
   }
@@ -46,9 +46,7 @@ export class TableListClassesComponent implements DataComponent<ClassLevelPayloa
   }
 
   refresh = () => {
-    this._classLevelService.get(this.filter).subscribe(res => {
-      this.data = res
-    });
+    this._classLevelService.get(this.filter).subscribe(res => this.data = res);
   }
 }
 

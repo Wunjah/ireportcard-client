@@ -29,4 +29,4 @@ export function isSchoolRole(role?: Role): boolean {
 
 export const isSchoolAdmin = (role?: Role): boolean => role != undefined && role == Role.SCHOOL_ADMIN;
 export const isTeacher = (role?: Role): boolean => role != undefined && role == Role.TEACHER;
-export const isStudent = (role?: Role): boolean => role != undefined&& role == Role.STUDENT;
+export const isStudent = (role?: Role): boolean => role != undefined && role == Role.STUDENT;

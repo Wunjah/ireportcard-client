@@ -10,11 +10,21 @@ import {SchTeachersAddComponent} from "./components/sch-teachers-add/sch-teacher
 import {SchDepartmentsComponent} from "./components/sch-departments/sch-departments.component";
 import {SchDepartmentsViewComponent} from "./components/sch-departments-view/sch-departments-view.component";
 import {SchSettingsComponent} from "./components/sch-settings/sch-settings.component";
+import {SchAcadCycleComponent} from "./components/sch-acad-cycle/sch-acad-cycle.component";
 
 const routes: Routes = [
   {
     path: '',
     component: SchHomeComponent
+  },
+  {
+    path: 'academic-cycle',
+    children: [
+      {
+        path: '',
+        component: SchAcadCycleComponent
+      }
+    ]
   },
   {
     path: 'students',

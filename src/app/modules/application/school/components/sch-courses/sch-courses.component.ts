@@ -13,12 +13,12 @@ import {DepartmentPayload} from "../../../../../models/payload/department.payloa
 @Component({
   selector: 'app-sch-courses',
   styleUrls: ['./sch-courses.component.css'],
-  template:  `
+  template: `
     <app-data-filter [formModel]="filterForm" (submitEvent)="filterAction($event)"></app-data-filter>
     <app-datatable *ngIf="table" [table]="table"></app-datatable>
   `
 })
-export class SchCoursesComponent implements OnInit, FilterComponent{
+export class SchCoursesComponent implements OnInit, FilterComponent {
   filter: SubjectFilter = new SubjectFilter({});
   filterForm: FormModel = SubjectFilterFormModel;
   table?: TableModel;
@@ -26,7 +26,7 @@ export class SchCoursesComponent implements OnInit, FilterComponent{
   constructor(
     private _subjectService: SubjectService,
     private _departmentService: DepartmentService
-    ) {
+  ) {
   }
 
   ngOnInit(): void {

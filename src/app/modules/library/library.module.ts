@@ -63,6 +63,7 @@ import {AccordionModule} from "primeng/accordion";
     TableListDepartmentsComponent
   ],
   exports: [
+    ReactiveFormsModule,
     HeaderComponent,
     SidebarComponent,
     MainComponent,

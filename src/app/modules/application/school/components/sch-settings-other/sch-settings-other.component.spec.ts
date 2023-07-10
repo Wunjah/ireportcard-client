@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SchSettingsOtherComponent } from './sch-settings-other.component';
+import {SchSettingsOtherComponent} from './sch-settings-other.component';
 
 describe('SchSettingsOtherComponent', () => {
   let component: SchSettingsOtherComponent;

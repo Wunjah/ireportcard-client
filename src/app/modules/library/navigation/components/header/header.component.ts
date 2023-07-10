@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {UserPayload} from "../../../../../models/entity/user/user.payload";
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,8 @@ import {Component} from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Input()
+  userPayload?: UserPayload | undefined;
 
   toggleSidebarAction() {
     document.body.classList.toggle("toggle-sidebar");

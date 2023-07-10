@@ -26,7 +26,7 @@ export class SchoolAddFormComponent implements SubmitForm {
     const school: SchoolEntity = {
       name: this.form.get('name')?.value,
       maxGrade: this.form.get('maxGrade')?.value,
-      organisationId: OrganisationId
+      organisationId: OrganisationId()
     }
     this.submitEvent.emit(school)
   }

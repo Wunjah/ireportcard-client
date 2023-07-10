@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DataComponent} from "../../../component/data.component";
-import {BaseEntity} from "../../../../../models/entity/base/base.entity";
 import {UserPayload} from "../../../../../models/entity/user/user.payload";
 import {UserService} from "../../../../../services/user/user.service";
 import {UserFilter} from "../../../../../models/filter/user/user.filter";
@@ -15,7 +14,7 @@ import {genderValues} from "../../../../../models/entity/base/gender.enum";
   templateUrl: './table-list-users.component.html',
   styleUrls: ['./table-list-users.component.css']
 })
-export class TableListUsersComponent implements OnInit, DataComponent<UserPayload[]>{
+export class TableListUsersComponent implements OnInit, DataComponent<UserPayload[]> {
   data: UserPayload[] = [];
   @Input()
   title: string = "Users";
@@ -42,8 +41,8 @@ export class TableListUsersComponent implements OnInit, DataComponent<UserPayloa
     this.filter = new UserFilter({
       approved: true,
       role: this.role,
-      schoolId: SchoolId,
-      organisationId: OrganisationId
+      schoolId: SchoolId(),
+      organisationId: OrganisationId()
     });
     this.refresh();
   }

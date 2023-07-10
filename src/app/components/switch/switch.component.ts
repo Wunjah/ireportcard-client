@@ -82,7 +82,7 @@ export class SwitchComponent implements OnInit {
         }
       }
     });
-    this._schoolService.getAllByOrganisation(OrganisationId).subscribe(res => {
+    this._schoolService.getAllByOrganisation(OrganisationId()).subscribe(res => {
       this.schools = res;
     })
   }

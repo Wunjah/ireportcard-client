@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SchSettingsEmailComponent } from './sch-settings-email.component';
+import {SchSettingsEmailComponent} from './sch-settings-email.component';
 
 describe('SchSettingsEmailComponent', () => {
   let component: SchSettingsEmailComponent;

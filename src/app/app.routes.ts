@@ -70,6 +70,14 @@ export const AppRoutes: AppRouteType = {
         main: '/configuration',
         name: 'Configuration'
       }
+    },
+    student: {
+      main: '/student',
+      name: 'Student',
+    },
+    teacher: {
+      main: '/teacher',
+      name: 'Teacher',
     }
   }
 }
@@ -80,6 +88,8 @@ enum AppRouteKey {
   APP_ORGANISATION = 'app.organisation.',
   APP_ORGANISATION_SCHOOLS_VIEW = 'app.organisation.schools.view',
   APP_SCHOOL = 'app.school',
+  APP_STUDENT = 'app.student',
+  APP_TEACHER = 'app.teacher',
   APP_USER_PROFILE = 'app.user.profile',
 }
 
@@ -89,6 +99,8 @@ export class AppRoute {
   static APP_ORG = new AppRoute(AppRouteKey.APP_ORGANISATION);
   static APP_ORG_SCHOOLS_VIEW = new AppRoute(AppRouteKey.APP_ORGANISATION_SCHOOLS_VIEW);
   static APP_SCHOOL = new AppRoute(AppRouteKey.APP_SCHOOL);
+  static APP_STUDENT = new AppRoute(AppRouteKey.APP_STUDENT);
+  static APP_TEACHER = new AppRoute(AppRouteKey.APP_TEACHER);
   static APP_USER_PROFILE = new AppRoute(AppRouteKey.APP_USER_PROFILE);
   private _r: string = "";
   private _n: string = "";

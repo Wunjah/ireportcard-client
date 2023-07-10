@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SchSettingsFeesComponent } from './sch-settings-fees.component';
+import {SchSettingsFeesComponent} from './sch-settings-fees.component';
 
 describe('SchSettingsFeesComponent', () => {
   let component: SchSettingsFeesComponent;

@@ -9,13 +9,19 @@ import {UserPayload} from "../../models/entity/user/user.payload";
 import {LocalStorageService} from "../general/local-storage.service";
 import {LaunchFilter} from "../../models/filter/auth/launch.filter";
 import {isValidId} from "../../models/entity/base/base.entity";
+import {RouterService} from "../general/router.service";
+import {AppRoute} from "../../app.routes";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService extends AppService<any, any> {
 
-  constructor(private http: HttpClient, private _localStorage: LocalStorageService) {
+  constructor(
+    private http: HttpClient,
+    private _localStorage: LocalStorageService,
+    private _routerService: RouterService
+  ) {
     super(http);
   }
 
@@ -57,6 +63,7 @@ export class AuthenticationService extends AppService<any, any> {
 
   logout = () => {
     this._localStorage.clear();
+    this._routerService.nav([AppRoute.AUTH_LOGIN], undefined, () => this._routerService.reload());
   }
 
   register = (user: UserPayload): Observable<RegisterResponse> => {

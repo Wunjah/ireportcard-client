@@ -18,12 +18,24 @@ const routes: Routes = [
         loadChildren: () => import('./modules/application/user/user.module').then(m => m.UserModule)
       },
       {
+        path: 'onboard',
+        loadChildren: () => import('./modules/application/onboard/onboard.module').then(m => m.OnboardModule)
+      },
+      {
         path: 'organisation',
         loadChildren: () => import('./modules/application/organisation/organisation.module').then(m => m.OrganisationModule)
       },
       {
         path: 'school',
         loadChildren: () => import('./modules/application/school/school.module').then(m => m.SchoolModule)
+      },
+      {
+        path: 'student',
+        loadChildren: () => import('./modules/application/student/student.module').then(m => m.StudentModule)
+      },
+      {
+        path: 'teacher',
+        loadChildren: () => import('./modules/application/teacher/teacher.module').then(m => m.TeacherModule)
       }
     ]
   }

@@ -3,5 +3,5 @@ import {ClassLevelSubModel} from "../entity/class-level/class-level-sub.model";
 
 export interface ClassLevelPayload {
   classLevel: ClassLevelModel
-  classLevelSubs: ClassLevelSubModel[]
+  subClassLevels: ClassLevelSubModel[]
 }

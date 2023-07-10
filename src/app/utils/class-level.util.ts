@@ -19,7 +19,7 @@ export module ClassLevelUtil {
               new TableCell(payload.classLevel.id),
               new TableCell(payload.classLevel.name),
               new TableCell(payload.classLevel.order),
-              new TableCell(payload.classLevelSubs.length)
+              new TableCell(payload.subClassLevels.length)
             ]
           }
         }

@@ -24,7 +24,7 @@ export class OrgSchoolsComponent implements OnInit, DataComponent<SchoolEntity[]
   }
 
   ngOnInit(): void {
-    this._schoolService.getAllByOrganisation(OrganisationId).subscribe(res => this.data = res);
+    this._schoolService.getAllByOrganisation(OrganisationId()).subscribe(res => this.data = res);
   }
 
   protected readonly AppRoute = AppRoute;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FormTeacherAddComponent } from './form-teacher-add.component';
+import {FormTeacherAddComponent} from './form-teacher-add.component';
 
 describe('FormAddTeacherComponent', () => {
   let component: FormTeacherAddComponent;

@@ -1,13 +1,15 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication/authentication.service";
 import {RouterService} from "../../services/general/router.service";
 import {AppRoute} from "../../app.routes";
+import {UserService} from "../../services/user/user.service";
+import {UserPayload} from "../../models/entity/user/user.payload";
 
 @Component({
   selector: 'app-shell',
   styleUrls: ['./shell.component.css'],
   template: `
-    <app-header></app-header>
+    <app-header [userPayload]="userPayload"></app-header>
     <app-sidebar
       (switchDialogEvent)="switchDialogEventHandler($event)"
       (logoutEvent)="logoutEventHandler()"></app-sidebar>
@@ -21,11 +23,18 @@ import {AppRoute} from "../../app.routes";
     </p-dialog>
   `
 })
-export class ShellComponent {
+export class ShellComponent implements OnInit{
+  userPayload?: UserPayload;
+
   constructor(
     private _authService: AuthenticationService,
+    private _userService: UserService,
     private _routerService: RouterService
   ) {
+  }
+
+  ngOnInit() {
+    this._userService.getByPrincipal().subscribe(res => this.userPayload = res);
   }
 
   switchDialogVisible: boolean = false;
@@ -36,6 +45,5 @@ export class ShellComponent {
 
   logoutEventHandler = () => {
     this._authService.logout();
-    this._routerService.nav([AppRoute.AUTH_LOGIN.path]);
   }
 }

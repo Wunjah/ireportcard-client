@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {DataComponent} from "../../../../library/component/data.component";
 import {UserPayload} from "../../../../../models/entity/user/user.payload";
 import {UserFilter} from "../../../../../models/filter/user/user.filter";
@@ -19,8 +19,8 @@ export class SchTeachersComponent implements DataComponent<UserPayload[]> {
   filter: UserFilter = new UserFilter({
     approved: true,
     role: Role.STUDENT,
-    schoolId: SchoolId,
-    organisationId: OrganisationId
+    schoolId: SchoolId(),
+    organisationId: OrganisationId()
   });
 
   constructor(private _userService: UserService) {

@@ -1,10 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {NavItem, NavItemGroup} from "../../models/nav-item.model";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {UserService} from "../../../../../services/user/user.service";
-import {isOrganisationRole, isSchoolRole} from "../../../../../models/entity/base/role.enum";
 import {NavUtil} from "../../../../../utils/nav.util";
-import {TreeNode} from "primeng/api";
 import {TreeNodeSelectEvent} from "primeng/tree";
 import {RouterService} from "../../../../../services/general/router.service";
 
@@ -73,6 +70,10 @@ export class SidebarComponent implements OnInit {
           this.navItemTree = NavUtil.ORGANISATION_ADMIN_NAV_TREE;
         } else if (url.startsWith("/app/school")) {
           this.navItemTree = NavUtil.SCHOOL_ADMIN_NAV_TREE;
+        } else if (url.startsWith("/app/student")) {
+          this.navItemTree = NavUtil.STUDENT_NAV_TREE;
+        } else if (url.startsWith("/app/teacher")) {
+
         }
       }
     });

@@ -21,6 +21,7 @@ import {SchSettingsCyclesComponent} from './components/sch-settings-cycles/sch-s
 import {SchSettingsEmailComponent} from './components/sch-settings-email/sch-settings-email.component';
 import {SchSettingsGeneralComponent} from './components/sch-settings-general/sch-settings-general.component';
 import {SchSettingsOtherComponent} from './components/sch-settings-other/sch-settings-other.component';
+import { SchAcadCycleComponent } from './components/sch-acad-cycle/sch-acad-cycle.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {SchSettingsOtherComponent} from './components/sch-settings-other/sch-set
     SchSettingsCyclesComponent,
     SchSettingsEmailComponent,
     SchSettingsGeneralComponent,
-    SchSettingsOtherComponent
+    SchSettingsOtherComponent,
+    SchAcadCycleComponent
   ],
   imports: [
     CommonModule,

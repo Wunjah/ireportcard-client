@@ -46,7 +46,7 @@ export type LocalStorageKey =
   'school_id' |
   'current_dashboard';
 
-export const AccessToken = <string>new LocalStorageService().get("access_token",) ?? DEFAULT_STRING,
-  SchoolId = <number | undefined>new LocalStorageService().get("school_id"),
-  OrganisationId = <number>new LocalStorageService().get("organisation_id") ?? DEFAULT_ID,
-  CurrentDashboard = <DashboardOption | undefined>new LocalStorageService().get("current_dashboard");
+export const AccessToken = () => <string>new LocalStorageService().get("access_token",) ?? DEFAULT_STRING;
+export const SchoolId = () => <number | undefined>new LocalStorageService().get("school_id");
+export const OrganisationId = () => <number> new LocalStorageService().get("organisation_id") ?? DEFAULT_ID;
+export const CurrentDashboard = () => <DashboardOption | undefined>new LocalStorageService().get("current_dashboard");

@@ -2,6 +2,18 @@ import {environment} from "../environments/environment";
 
 export const AppEndpoints: AppEndpointType = {
   main: environment.apiUrl,
+  academic_cycle: {
+    main: '/academic-cycle',
+    year: {
+      main: 'year'
+    },
+    term: {
+      main: 'term'
+    },
+    sequence: {
+      main: 'sequence'
+    }
+  },
   auth: {
     main: '/auth',
     login: {
@@ -47,6 +59,7 @@ type AppEndpointType = {
 }
 
 enum AppEndpointKey {
+  ACADEMIC_CYCLE = 'academic_cycle',
   AUTH_CHECK = 'auth.check',
   AUTH_LOGIN = "auth.login",
   AUTH_REGISTER = "auth.register",
@@ -75,6 +88,7 @@ export class AppEndpoint {
   private _base: string = "";
   private _path: string = "";
   private readonly _url: string
+  static ACADEMIC_CYCLE = new AppEndpoint(AppEndpointKey.ACADEMIC_CYCLE);
 
   constructor(key: string | AppEndpointKey) {
     this._url = this.constructUrl(key);

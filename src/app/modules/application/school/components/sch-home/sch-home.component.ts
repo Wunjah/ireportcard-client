@@ -24,7 +24,7 @@ export class SchHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    const filter = new LaunchFilter({schoolId: SchoolId});
+    const filter = new LaunchFilter({schoolId: SchoolId()});
     this._authService.launch(filter).subscribe(res => {
       if (res.schoolStats) {
         this.schoolStats[0].value = res.schoolStats.numberOfTeachers;

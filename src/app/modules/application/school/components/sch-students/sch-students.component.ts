@@ -22,8 +22,8 @@ export class SchStudentsComponent implements DataComponent<UserPayload[]> {
   filter: UserFilter = new UserFilter({
     approved: true,
     role: Role.STUDENT,
-    schoolId: SchoolId,
-    organisationId: OrganisationId
+    schoolId: SchoolId(),
+    organisationId: OrganisationId()
   });
   dataFilterForm: FormModel;
 

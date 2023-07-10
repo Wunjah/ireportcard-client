@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TableListClassesComponent } from './table-list-classes.component';
+import {TableListClassesComponent} from './table-list-classes.component';
 
 describe('TableListClassesComponent', () => {
   let component: TableListClassesComponent;

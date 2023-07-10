@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SchDepartmentsViewComponent } from './sch-departments-view.component';
+import {SchDepartmentsViewComponent} from './sch-departments-view.component';
 
 describe('SchDepartmentsViewComponent', () => {
   let component: SchDepartmentsViewComponent;

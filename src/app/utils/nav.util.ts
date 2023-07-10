@@ -66,6 +66,16 @@ export module NavUtil {
     icon: "bi bi-grid",
     link: '/app/school'
   }
+
+  const appSchoolAcademicCycle: NavItem = {
+    code: "school-academic-cycle-nav",
+    label: "Academic Cycle",
+    icon: "arrows-spin",
+    link: '/app/school/academic-cycle',
+    children: [
+
+    ]
+  }
   const appSchoolStudents: NavItem = {
     code: "student-nav",
     label: "Students",
@@ -144,6 +154,32 @@ export module NavUtil {
     link: '/app/school/settings'
   }
 
+  const appStudentHome: NavItem = {
+    code: "student-dashboard-nav",
+    label: "Home",
+    icon: "home",
+    link: '/app/student'
+  }
+  const appStudentApplications: NavItem = {
+    code: "student-application-nav",
+    label: "Applications",
+    icon: "file",
+    link: '/app/student/applications'
+  }
+  const appStudentCourses: NavItem = {
+    code: "student-courses-nav",
+    label: "Courses",
+    icon: "book-open-reader",
+    link: '/app/student/courses'
+  }
+  const appStudentSettings: NavItem = {
+    code: "student-settings-nav",
+    label: "Settings",
+    icon: "gear",
+    link: '/app/student/settings'
+  }
+
+
   export const ORGANISATION_ADMIN_NAV_GROUP = new NavItemGroup("", [
     appOrganisationDashboard,
     appOrganisationMembers,
@@ -152,12 +188,23 @@ export module NavUtil {
   ]);
   export const SCHOOL_ADMIN_NAV_GROUP = new NavItemGroup("", [
     appSchoolDashboard,
+    appSchoolAcademicCycle,
     appSchoolStudents,
     appSchoolTeachers,
     appSchoolDepartments,
     appSchoolClasses,
     appSchoolCourses,
     appSchoolSettings,
+  ]);
+  export const STUDENT_NAV_GROUP = new NavItemGroup("Student", [
+    appStudentHome,
+    appStudentApplications,
+    appStudentCourses,
+    appStudentSettings
+  ]);
+
+  export const TEACHER_NAV_GROUP = new NavItemGroup("Teacher", [
+
   ]);
 
 
@@ -173,5 +220,6 @@ export module NavUtil {
 
   export const ORGANISATION_ADMIN_NAV_TREE: TreeNode[] = ORGANISATION_ADMIN_NAV_GROUP.navItems.map(navItemToTreeNode);
   export const SCHOOL_ADMIN_NAV_TREE: TreeNode[] = SCHOOL_ADMIN_NAV_GROUP.navItems.map(navItemToTreeNode);
+  export const STUDENT_NAV_TREE: TreeNode[] = STUDENT_NAV_GROUP.navItems.map(navItemToTreeNode);
 }
 

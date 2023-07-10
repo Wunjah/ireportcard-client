@@ -1,5 +1,5 @@
 import {HttpParams} from "@angular/common/http";
-import {CustomObject, Pair} from "../../app.types";
+import {Pair} from "../../app.types";
 import {Id} from "../entity/base/base.entity";
 import {OrganisationId, SchoolId} from "../../services/general/local-storage.service";
 
@@ -62,16 +62,16 @@ export abstract class BaseFilter extends HttpParams {
 export class SchoolBaseFilter extends BaseFilter {
   constructor(public params: SchoolBaseFilterParams, fill: boolean) {
     if (fill) {
-      params.schoolId = SchoolId!!
-      params.organisationId = OrganisationId
+      params.schoolId = SchoolId()!!
+      params.organisationId = OrganisationId()
     }
     super(params);
   }
 
   static simple(obj?: SchoolBaseFilterParams) {
     const params = <SchoolBaseFilterParams>{
-      schoolId: SchoolId,
-      organisationId: OrganisationId
+      schoolId: SchoolId(),
+      organisationId: OrganisationId()
     }
     const filter = new SchoolBaseFilter(params, true);
     if (obj) {
