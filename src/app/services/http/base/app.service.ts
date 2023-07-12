@@ -13,8 +13,8 @@ export interface IAppService<T> {}
 export abstract class AppService<Entity, Payload> implements IAppService<Entity> {
   protected readonly url: string;
 
-  protected constructor(private httpClient: HttpClient, endpoint?: AppEndpoint, pathPrefix: string = "") {
-    this.url = `${endpoint?.url ?? ""}${pathPrefix}`;
+  protected constructor(private httpClient: HttpClient, endpoint?: AppEndpoint, pathPrefix: string = '') {
+    this.url = `${endpoint?.url ?? ''}${pathPrefix}`;
   }
 
   urlWithPath = (path: string) => `${this.url}${path}`
@@ -22,7 +22,7 @@ export abstract class AppService<Entity, Payload> implements IAppService<Entity>
   postPayload = (payload: Payload, path: string = '') => this.httpClient.post<any>(`${this.url}${path}`, payload);
   getPayload = (path: string = '') => this.httpClient.get<Payload>(`${this.url}${path}`);
 
-  list = (filter: BaseFilter): Observable<Payload[]> => this.httpClient.get<Payload[]>(this.urlWithPath("/list"), {
+  list = (filter: BaseFilter): Observable<Payload[]> => this.httpClient.get<Payload[]>(this.urlWithPath('/list'), {
     params: filter.parameters
   });
 }

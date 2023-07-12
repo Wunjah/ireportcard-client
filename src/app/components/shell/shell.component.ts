@@ -27,9 +27,7 @@ export class ShellComponent implements OnInit {
   switchDialogVisible: boolean = false;
 
   constructor(
-    private _authService: AuthenticationService,
-    private _userService: UserService,
-    private _routerService: RouterService
+    private _authService: AuthenticationService, private _userService: UserService, private _routerService: RouterService
   ) {
   }
 
@@ -37,11 +35,7 @@ export class ShellComponent implements OnInit {
     this._userService.getByPrincipal().subscribe(res => this.userPayload = res);
   }
 
-  switchDialogEventHandler($event: boolean) {
-    this.switchDialogVisible = $event;
-  }
+  switchDialogEventHandler = ($event: boolean) => this.switchDialogVisible = $event;
 
-  logoutEventHandler = () => {
-    this._authService.logout();
-  }
+  logoutEventHandler = () => this._authService.logout();
 }
