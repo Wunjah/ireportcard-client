@@ -1,10 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {UserService} from "../../services/user/user.service";
+import {UserService} from "../../services/http/user/user.service";
 import {Role} from "../../models/entity/base/role.enum";
 import {FormBuilder} from "@angular/forms";
 import {DashboardOption} from "../../app.types";
 import {RouterService} from "../../services/general/router.service";
-import {SchoolService} from "../../services/school/school.service";
+import {SchoolService} from "../../services/http/school/school.service";
 import {LocalStorageService, OrganisationId} from "../../services/general/local-storage.service";
 import {SchoolEntity} from "../../models/entity/school/school.entity";
 

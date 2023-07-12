@@ -85,10 +85,10 @@ export class AppEndpoint {
   static SECTION = new AppEndpoint(AppEndpointKey.SECTION);
   static SUBJECT = new AppEndpoint(AppEndpointKey.SUBJECT);
   static USER = new AppEndpoint(AppEndpointKey.USER);
+  static ACADEMIC_CYCLE = new AppEndpoint(AppEndpointKey.ACADEMIC_CYCLE);
   private _base: string = "";
   private _path: string = "";
   private readonly _url: string
-  static ACADEMIC_CYCLE = new AppEndpoint(AppEndpointKey.ACADEMIC_CYCLE);
 
   constructor(key: string | AppEndpointKey) {
     this._url = this.constructUrl(key);

@@ -60,9 +60,8 @@ export class DatafilterComponent implements OnInit, SubmitForm {
 
   formControlModels: FormControlAttributes[] = [];
   form: FormGroup = this._fb.group({});
-
-  private controls: [string, any][] = [];
   filterHidden: boolean = false;
+  private controls: [string, any][] = [];
 
   constructor(private _fb: FormBuilder) {
 

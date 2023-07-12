@@ -23,16 +23,6 @@ export abstract class BaseFilter extends HttpParams {
     this.construct(p);
   }
 
-  private construct(obj: { [p: string]: any }) {
-    if (typeof obj === 'object') {
-      Object.entries(obj)
-        .filter(([_, value]) => value !== undefined)
-        .forEach(([key, value]) => {
-          this.updateParam({key: key, value: value});
-        });
-    }
-  }
-
   set param(pair: Pair) {
     this.updateParam(pair)
   }
@@ -46,6 +36,16 @@ export abstract class BaseFilter extends HttpParams {
       Object.entries(o).forEach(([k, v]) => {
         this.param = {key: k, value: v};
       });
+    }
+  }
+
+  private construct(obj: { [p: string]: any }) {
+    if (typeof obj === 'object') {
+      Object.entries(obj)
+        .filter(([_, value]) => value !== undefined)
+        .forEach(([key, value]) => {
+          this.updateParam({key: key, value: value});
+        });
     }
   }
 

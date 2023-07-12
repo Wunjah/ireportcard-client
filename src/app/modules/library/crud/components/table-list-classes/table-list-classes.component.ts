@@ -6,8 +6,8 @@ import {FormModel} from "../../../form/models/form/form.model";
 import {ClassLevelFilter} from "../../../../../models/filter/class/class-level.filter";
 import {FormControlModel, FormControlValue} from "../../../form/models/form/form-control.model";
 import {OrganisationId, SchoolId} from "../../../../../services/general/local-storage.service";
-import {ClassLevelService} from "../../../../../services/class-level/class-level.service";
-import {SectionService} from "../../../../../services/school/section.service";
+import {ClassLevelService} from "../../../../../services/http/class-level/class-level.service";
+import {SectionService} from "../../../../../services/http/school/section.service";
 import {SchoolBaseFilter} from "../../../../../models/filter/base.filter";
 import {SectionPayload} from "../../../../../models/payload/section.payload";
 

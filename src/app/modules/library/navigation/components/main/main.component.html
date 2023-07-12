@@ -2,7 +2,7 @@
   <div *ngIf="breadCrumb" class="mb-5">
     <h1 class="text-900">{{breadCrumb.name}}</h1>
     <div class="card flex justify-content-center">
-      <p-breadcrumb class="max-w-full" [model]="menuItems"></p-breadcrumb>
+      <p-breadcrumb [model]="menuItems" class="max-w-full"></p-breadcrumb>
     </div>
   </div><!-- End Page Title -->
   <ng-content #content></ng-content>

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {dateToISO, today, todayYear} from "../../../../../utils/date.util";
 import {AcademicCyclePayload} from "../../../../../models/payload/academic-cycle.payload";
-import {AcademicCycleService} from "../../../../../services/academic-cycle/academic-cycle.service";
+import {AcademicCycleService} from "../../../../../services/http/academic-cycle/academic-cycle.service";
 import {IsNotUndefined, IsUndefined} from "../../../../../utils/base.util";
 
 @Component({
@@ -28,16 +28,6 @@ export class SchAcadCycleComponent implements OnInit {
 
   ngOnInit() {
     this._academicCycleService.currentCycle().subscribe(this.patch);
-  }
-
-  private patch = (payload: AcademicCyclePayload) => {
-    this.academicCyclePayload = payload;
-    this.form.patchValue({
-      startYear: payload.year.startYear,
-      endYear: payload.year.endYear,
-      openingDate: dateToISO(payload.year.cycleInfo.openingDate),
-      closingDate: dateToISO(payload.year.cycleInfo.closingDate),
-    });
   }
 
   endYearValue = () => {
@@ -71,7 +61,18 @@ export class SchAcadCycleComponent implements OnInit {
         IsNotUndefined(this.academicCyclePayload?.year.cycleInfo.closingDate),
       text: IsUndefined(this.academicCyclePayload) ? 'Launch Cycle' : 'Close Cycle',
       action: IsUndefined(this.academicCyclePayload) ?
-        this.submit : () => {}
+        this.submit : () => {
+        }
     }
+  }
+
+  private patch = (payload: AcademicCyclePayload) => {
+    this.academicCyclePayload = payload;
+    this.form.patchValue({
+      startYear: payload.year.startYear,
+      endYear: payload.year.endYear,
+      openingDate: dateToISO(payload.year.cycleInfo.openingDate),
+      closingDate: dateToISO(payload.year.cycleInfo.closingDate),
+    });
   }
 }

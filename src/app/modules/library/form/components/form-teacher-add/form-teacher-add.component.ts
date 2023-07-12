@@ -16,6 +16,7 @@ export class FormTeacherAddComponent implements SubmitForm {
   form: FormGroup;
   @Output()
   submitEvent = new EventEmitter<UserPayload>();
+  protected readonly genderOptions = genderOptions;
 
   constructor(private _fb: FormBuilder) {
     this.form = _fb.group({
@@ -38,6 +39,4 @@ export class FormTeacherAddComponent implements SubmitForm {
       organisationId: OrganisationId,
     }, Role.TEACHER))
   }
-
-  protected readonly genderOptions = genderOptions;
 }

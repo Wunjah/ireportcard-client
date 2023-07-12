@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from "../../../../../services/authentication/authentication.service";
+import {AuthenticationService} from "../../../../../services/http/authentication/authentication.service";
 import {EmptySchoolStats, SchoolStat} from "../../../../../models/entity/authentication/login.model";
 import {LaunchFilter} from "../../../../../models/filter/auth/launch.filter";
 import {SchoolId} from "../../../../../services/general/local-storage.service";

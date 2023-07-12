@@ -22,20 +22,20 @@ class CustomDate extends Date {
     this.setDate(date.getDate());
   }
 
-  new() {
-
-  }
-
-  toISO = (time: boolean = false) => {
-    dateToISO(this, time);
-  }
-
   static today() {
     return new Date();
   }
 
   static toISO = (date: Date, time: boolean = false) => {
     dateToISO(date, time)
+  }
+
+  new() {
+
+  }
+
+  toISO = (time: boolean = false) => {
+    dateToISO(this, time);
   }
 }
 

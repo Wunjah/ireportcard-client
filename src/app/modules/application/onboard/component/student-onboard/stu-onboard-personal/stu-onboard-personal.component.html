@@ -1,0 +1,75 @@
+<form [formGroup]="form" class="formgrid grid">
+  <div class="field col-12 md:col-6 pb-3">
+    <span class="p-float-label">
+      <input class="w-full p-inputtext-sm" formControlName="firstname" id="firstname" pInputText>
+      <label [htmlFor]="'firstname'">First Name</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+          <span class="p-float-label">
+            <input class="w-full p-inputtext-sm" formControlName="lastname" id="lastname" pInputText>
+            <label [htmlFor]="'lastname'">LastName</label>
+          </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+          <span class="p-float-label">
+            <p-dropdown
+              [optionLabel]="'value'"
+              [optionValue]="'value'"
+              [options]="genderOptions"
+              formControlName="gender"
+              id="gender"
+              placeholder="Gender"
+              styleClass="w-full p-inputtext-sm">
+            </p-dropdown>
+            <label [htmlFor]="'gender'">Gender</label>
+          </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+          <span class="p-float-label">
+            <input class="w-full p-inputtext-sm" formControlName="phone" id="phone" pInputText>
+            <label [htmlFor]="'phone'">Phone Number</label>
+          </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+          <span class="p-float-label">
+            <input class="w-full p-inputtext-sm" formControlName="address" id="address" pInputText>
+            <label [htmlFor]="'address'">Address</label>
+          </span>
+  </div>
+
+  <div class="field col-12 md:col-6 pb-3">
+          <span class="p-float-label">
+            <input class="w-full p-inputtext-sm" formControlName="email" id="email" pInputText>
+            <label [htmlFor]="'email'">Email Address</label>
+          </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+          <span class="p-float-label">
+            <p-password [toggleMask]="true" formControlName="password" id="password" inputStyleClass="w-full"
+                        styleClass="w-full p-inputtext-sm"></p-password>
+            <label [htmlFor]="'password'">Password</label>
+          </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+        <span class="p-float-label w-full">
+          <p-password [toggleMask]="true" formControlName="password2" id="password2" inputStyleClass="w-full"
+                      styleClass="w-full p-inputtext-sm"></p-password>
+          <label [htmlFor]="'password2'">Repeat Password</label>
+        </span>
+  </div>
+
+  <!--buttons-->
+  <div class="field col-12 mb-lg-3">
+    <label [htmlFor]="'upload'">Upload Student Photo</label>
+    <p-fileUpload
+      chooseLabel="Upload Image"
+      id="upload"
+      mode="basic"
+      styleClass="p-button-text p-button-sm p-button-secondary">
+    </p-fileUpload>
+  </div>
+  <div class="field col-4">
+    <p-button label="Next" styleClass="w-full p-button-sm" (click)="nextPageAction()"></p-button>
+  </div>
+</form>

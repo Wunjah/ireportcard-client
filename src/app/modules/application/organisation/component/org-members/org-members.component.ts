@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../../../../services/user/user.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 import {TableModel} from "../../../../library/crud/models/table.model";
 import {UserUtil} from "../../../../../utils/user.util";
 

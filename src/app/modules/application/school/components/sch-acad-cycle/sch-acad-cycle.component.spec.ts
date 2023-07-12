@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SchAcadCycleComponent } from './sch-acad-cycle.component';
+import {SchAcadCycleComponent} from './sch-acad-cycle.component';
 
 describe('SchAcadCycleComponent', () => {
   let component: SchAcadCycleComponent;

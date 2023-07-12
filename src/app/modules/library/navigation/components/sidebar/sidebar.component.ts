@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {UserService} from "../../../../../services/user/user.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 import {NavUtil} from "../../../../../utils/nav.util";
 import {TreeNodeSelectEvent} from "primeng/tree";
 import {RouterService} from "../../../../../services/general/router.service";
@@ -35,6 +35,11 @@ import {RouterService} from "../../../../../services/general/router.service";
   `
 })
 export class SidebarComponent implements OnInit {
+  navItemTree = NavUtil.ORGANISATION_ADMIN_NAV_TREE;
+  @Output()
+  switchDialogEvent = new EventEmitter<boolean>();
+  @Output()
+  logoutEvent = new EventEmitter<boolean>();
   actionButtons = [
     {
       label: "Switch",
@@ -51,11 +56,6 @@ export class SidebarComponent implements OnInit {
       action: () => this.logoutEvent.emit(true)
     },
   ]
-  navItemTree = NavUtil.ORGANISATION_ADMIN_NAV_TREE;
-  @Output()
-  switchDialogEvent = new EventEmitter<boolean>();
-  @Output()
-  logoutEvent = new EventEmitter<boolean>();
 
   constructor(
     private _router: Router,

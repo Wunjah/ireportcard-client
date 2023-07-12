@@ -6,16 +6,16 @@
       </div>
       <div class="grid">
         <div class="field col-12">
-          <label for="amount" class="block mb-2">Amount</label>
-          <input pInputText id="amount" type="number" class="w-full p-inputtext-sm">
+          <label class="block mb-2" for="amount">Amount</label>
+          <input class="w-full p-inputtext-sm" id="amount" pInputText type="number">
         </div>
         <div class="field col-12">
-          <label for="effective" class="block mb-2">Effective Date</label>
+          <label class="block mb-2" for="effective">Effective Date</label>
           <p-calendar id="effective" styleClass="w-full p-inputtext-sm"></p-calendar>
         </div>
         <div class="field col-12">
-          <label for="effective" class="block mb-2">Apply to class levels</label>
-          <p-multiSelect placeholder="Select Class Level" [options]="[]"
+          <label class="block mb-2" for="effective">Apply to class levels</label>
+          <p-multiSelect [options]="[]" placeholder="Select Class Level"
                          styleClass="w-full p-inputtext-sm"></p-multiSelect>
         </div>
 
@@ -27,7 +27,7 @@
       </div>
       <div class="grid">
         <div class="field col-12">
-          <span for="amount" class="block mb-2">No fee configuration</span>
+          <span class="block mb-2" for="amount">No fee configuration</span>
         </div>
       </div>
     </div>

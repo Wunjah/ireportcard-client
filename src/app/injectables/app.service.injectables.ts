@@ -1,6 +1,6 @@
-import {AuthenticationService} from "../services/authentication/authentication.service";
+import {AuthenticationService} from "../services/http/authentication/authentication.service";
 import {Type} from "@angular/core";
-import {AppService} from "../services/base/app.service";
+import {AppService} from "../services/http/base/app.service";
 
 type HttpAppServiceInjectable = { provide: Type<AppService<any, any>>, useClass: Type<AppService<any, any>> }[]
 

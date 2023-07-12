@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TableModel} from "../../../../library/crud/models/table.model";
-import {SchoolStaffService} from "../../../../../services/school/school-staff.service";
+import {SchoolStaffService} from "../../../../../services/http/school/school-staff.service";
 import {Id} from "../../../../../models/entity/base/base.entity";
 import {SchoolUtil} from "../../../../../utils/school.util";
 

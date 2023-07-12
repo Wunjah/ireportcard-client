@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AppRoute} from "../../../../../app.routes";
 import {LoginRequest} from "../../../../../models/entity/authentication/login.model";
-import {AuthenticationService} from "../../../../../services/authentication/authentication.service";
+import {AuthenticationService} from "../../../../../services/http/authentication/authentication.service";
 import {LocalStorageService} from "../../../../../services/general/local-storage.service";
 import {RouterService} from "../../../../../services/general/router.service";
-import {UserService} from "../../../../../services/user/user.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 import {Role} from "../../../../../models/entity/base/role.enum";
 
 @Component({

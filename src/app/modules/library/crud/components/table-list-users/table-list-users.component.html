@@ -1,4 +1,4 @@
-<app-data-filter [formModel]="dataFilterForm" (submitEvent)="dataFilterAction($event)"></app-data-filter>
+<app-data-filter (submitEvent)="dataFilterAction($event)" [formModel]="dataFilterForm"></app-data-filter>
 
 <p-table [title]="title" [value]="data">
   <ng-template pTemplate="header">
@@ -10,7 +10,7 @@
       <th>Approved</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-d>
+  <ng-template let-d pTemplate="body">
     <tr>
       <td>{{d.user.id}}</td>
       <td>{{d.user.username}}</td>

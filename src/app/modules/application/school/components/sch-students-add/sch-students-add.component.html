@@ -31,22 +31,22 @@
         </div>
         <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
-            <input pInputText id="email" class="w-full">
+            <input class="w-full" id="email" pInputText>
             <label [htmlFor]="'email'">Email Address</label>
           </span>
         </div>
         <div class="field col-12 md:col-6 lg:col-4 pb-3">
           <span class="p-float-label">
-            <input pInputText id="phone" class="w-full">
+            <input class="w-full" id="phone" pInputText>
             <label [htmlFor]="'phone'">Phone Number</label>
           </span>
         </div>
         <div class="field col-12 mb-lg-3">
           <label [htmlFor]="'upload'">Upload Student Photo</label>
           <p-fileUpload
+            chooseLabel="Upload Image"
             id="upload"
             mode="basic"
-            chooseLabel="Upload Image"
             styleClass="p-button-text p-button-sm p-button-secondary">
           </p-fileUpload>
         </div>

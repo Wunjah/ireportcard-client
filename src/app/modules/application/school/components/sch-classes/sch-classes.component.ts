@@ -5,9 +5,9 @@ import {TableModel} from "../../../../library/crud/models/table.model";
 import {ClassLevelFilter} from "../../../../../models/filter/class/class-level.filter";
 import {OrganisationId, SchoolId} from "../../../../../services/general/local-storage.service";
 import {FormControlModel, FormControlValue} from "../../../../library/form/models/form/form-control.model";
-import {ClassLevelService} from "../../../../../services/class-level/class-level.service";
+import {ClassLevelService} from "../../../../../services/http/class-level/class-level.service";
 import {ClassLevelUtil} from "../../../../../utils/class-level.util";
-import {SectionService} from "../../../../../services/school/section.service";
+import {SectionService} from "../../../../../services/http/school/section.service";
 import {SchoolBaseFilter} from "../../../../../models/filter/base.filter";
 import {SectionPayload} from "../../../../../models/payload/section.payload";
 

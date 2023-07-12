@@ -72,9 +72,7 @@ export module NavUtil {
     label: "Academic Cycle",
     icon: "arrows-spin",
     link: '/app/school/academic-cycle',
-    children: [
-
-    ]
+    children: []
   }
   const appSchoolStudents: NavItem = {
     code: "student-nav",
@@ -203,9 +201,7 @@ export module NavUtil {
     appStudentSettings
   ]);
 
-  export const TEACHER_NAV_GROUP = new NavItemGroup("Teacher", [
-
-  ]);
+  export const TEACHER_NAV_GROUP = new NavItemGroup("Teacher", []);
 
 
   const navItemToTreeNode = (navItem: NavItem): TreeNode => {

@@ -1,5 +1,5 @@
 <app-datatable *ngIf="table" [table]="table"></app-datatable>
-<p-table [value]="data" [title]="title">
+<p-table [title]="title" [value]="data">
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
@@ -7,7 +7,7 @@
       <th>Actions</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-d>
+  <ng-template let-d pTemplate="body">
     <tr>
       <td>{{d.id}}</td>
       <td>{{d.name}}</td>

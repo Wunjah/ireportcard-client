@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from "../../services/authentication/authentication.service";
+import {AuthenticationService} from "../../services/http/authentication/authentication.service";
 import {RouterService} from "../../services/general/router.service";
-import {AppRoute} from "../../app.routes";
-import {UserService} from "../../services/user/user.service";
+import {UserService} from "../../services/http/user/user.service";
 import {UserPayload} from "../../models/entity/user/user.payload";
 
 @Component({
@@ -23,8 +22,9 @@ import {UserPayload} from "../../models/entity/user/user.payload";
     </p-dialog>
   `
 })
-export class ShellComponent implements OnInit{
+export class ShellComponent implements OnInit {
   userPayload?: UserPayload;
+  switchDialogVisible: boolean = false;
 
   constructor(
     private _authService: AuthenticationService,
@@ -36,8 +36,6 @@ export class ShellComponent implements OnInit{
   ngOnInit() {
     this._userService.getByPrincipal().subscribe(res => this.userPayload = res);
   }
-
-  switchDialogVisible: boolean = false;
 
   switchDialogEventHandler($event: boolean) {
     this.switchDialogVisible = $event;

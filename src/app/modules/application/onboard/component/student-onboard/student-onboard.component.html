@@ -1,1 +1,17 @@
-<p>student-onboard works!</p>
+<div class="p-2 border-round">
+  <div class="grid grid-nogutter">
+    <div class="col-12 md:col-6">
+      <div class="surface-section p-3">
+        <div class="card">
+          <p-steps [model]="items" [activeIndex]="(onboardData$() | async)?.index ?? 0"></p-steps>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col-12 md:col-6">
+      <div class="surface-ground hover:shadow-2 p-3">
+        <span class="text-2xl">{{(onboardData$() | async)?.index}}</span>
+      </div>
+    </div>
+  </div>
+</div>

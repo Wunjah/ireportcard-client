@@ -12,9 +12,8 @@ import {MenuItem} from "primeng/api";
 export class MainComponent implements OnInit {
   @ContentChild('content') content: any;
   breadCrumb?: BreadCrumbModel;
-  private fullPath: string = "";
-
   menuItems: MenuItem[] = [];
+  private fullPath: string = "";
 
   constructor(private _route: ActivatedRoute, private _router: Router) {
   }

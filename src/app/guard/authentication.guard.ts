@@ -1,5 +1,5 @@
 import {CanActivateFn} from '@angular/router';
-import {AuthenticationService} from "../services/authentication/authentication.service";
+import {AuthenticationService} from "../services/http/authentication/authentication.service";
 import {inject} from "@angular/core";
 import {LocalStorageService} from "../services/general/local-storage.service";
 import {RouterService} from "../services/general/router.service";

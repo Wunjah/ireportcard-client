@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserPayload} from "../../../../../models/entity/user/user.payload";
-import {UserService} from "../../../../../services/user/user.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({

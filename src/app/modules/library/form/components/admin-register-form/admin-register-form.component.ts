@@ -3,7 +3,7 @@ import {genderValues} from "../../../../../models/entity/base/gender.enum";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserPayload} from "../../../../../models/entity/user/user.payload";
 import {Role} from "../../../../../models/entity/base/role.enum";
-import {UserService} from "../../../../../services/user/user.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 import {SubmitForm} from "../form/submit.form";
 
 @Component({

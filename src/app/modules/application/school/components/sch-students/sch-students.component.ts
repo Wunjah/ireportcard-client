@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {TableModel} from "../../../../library/crud/models/table.model";
-import {UserService} from "../../../../../services/user/user.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 import {UserFilter} from "../../../../../models/filter/user/user.filter";
 import {Role} from "../../../../../models/entity/base/role.enum";
 import {Gender, genderValues} from "../../../../../models/entity/base/gender.enum";
@@ -29,6 +29,7 @@ export class SchStudentsComponent implements DataComponent<UserPayload[]> {
 
   title = "Students";
   data: UserPayload[] = [];
+  protected readonly Role = Role;
 
   constructor(private _userService: UserService) {
     this.dataFilterForm = new FormModel({
@@ -54,5 +55,4 @@ export class SchStudentsComponent implements DataComponent<UserPayload[]> {
       this.data = res;
     });
   }
-  protected readonly Role = Role;
 }

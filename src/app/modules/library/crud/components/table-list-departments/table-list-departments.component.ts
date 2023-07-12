@@ -5,8 +5,8 @@ import {FilterComponent} from "../../../component/filter.component";
 import {FormModel} from "../../../form/models/form/form.model";
 import {DepartmentFilter} from "../../../../../models/filter/subject/department.filter";
 import {FormControlModel} from "../../../form/models/form/form-control.model";
-import {DepartmentService} from "../../../../../services/subject/department.service";
-import {UserService} from "../../../../../services/user/user.service";
+import {DepartmentService} from "../../../../../services/http/subject/department.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 
 @Component({
   selector: 'app-table-list-departments',

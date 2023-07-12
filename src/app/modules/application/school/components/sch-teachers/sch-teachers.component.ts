@@ -4,7 +4,7 @@ import {UserPayload} from "../../../../../models/entity/user/user.payload";
 import {UserFilter} from "../../../../../models/filter/user/user.filter";
 import {Role} from "../../../../../models/entity/base/role.enum";
 import {OrganisationId, SchoolId} from "../../../../../services/general/local-storage.service";
-import {UserService} from "../../../../../services/user/user.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 
 @Component({
   selector: 'app-sch-teachers',
@@ -22,10 +22,9 @@ export class SchTeachersComponent implements DataComponent<UserPayload[]> {
     schoolId: SchoolId(),
     organisationId: OrganisationId()
   });
+  protected readonly Role = Role;
 
   constructor(private _userService: UserService) {
 
   }
-
-  protected readonly Role = Role;
 }

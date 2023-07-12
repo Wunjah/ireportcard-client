@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DataComponent} from "../../../component/data.component";
 import {UserPayload} from "../../../../../models/entity/user/user.payload";
-import {UserService} from "../../../../../services/user/user.service";
+import {UserService} from "../../../../../services/http/user/user.service";
 import {UserFilter} from "../../../../../models/filter/user/user.filter";
 import {Role} from "../../../../../models/entity/base/role.enum";
 import {OrganisationId, SchoolId} from "../../../../../services/general/local-storage.service";

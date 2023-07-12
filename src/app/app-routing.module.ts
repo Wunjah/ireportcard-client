@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
+    path: 'onboard',
+    loadChildren: () => import('./modules/application/onboard/onboard.module').then(m => m.OnboardModule)
+  },
+  {
     path: 'app',
     component: ShellComponent,
     canActivate: [authenticationGuard],
@@ -16,10 +20,6 @@ const routes: Routes = [
       {
         path: 'user',
         loadChildren: () => import('./modules/application/user/user.module').then(m => m.UserModule)
-      },
-      {
-        path: 'onboard',
-        loadChildren: () => import('./modules/application/onboard/onboard.module').then(m => m.OnboardModule)
       },
       {
         path: 'organisation',
