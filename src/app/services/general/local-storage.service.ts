@@ -1,22 +1,29 @@
-import { Injectable } from '@angular/core';
-import {AppService} from "../base/app.service";
-import {DEFAULT_ID} from "../../utils/base.util";
+import {Injectable} from '@angular/core';
+import {DEFAULT_ID, DEFAULT_STRING} from "../../utils/base.util";
+import {DashboardOption} from "../../app.types";
 
 @Injectable({
   providedIn: 'root'
 })
-export class LocalStorageService extends AppService<any>{
+export class LocalStorageService {
   private readonly prefix = '_transkript';
-  constructor() {super(); }
 
-  set = (key: LocalStorageKey, value: string) => localStorage.setItem(this.resolveKey(key), value)
+  constructor() {
+  }
 
-  get = (key: LocalStorageKey): LocalStorageValueType | null => {
+  set = (key: LocalStorageKey, value: any) => localStorage.setItem(this.resolveKey(key), value)
+
+  get = (key: LocalStorageKey): LocalStorageValueType => {
     const value = localStorage.getItem(this.resolveKey(key))
+    if (value == null || value == 'null') {
+      return undefined;
+    }
     if (!isNaN(Number(value))) {
       return Number(value)
+    } else if (value) {
+      return value;
     } else {
-      return value
+      return undefined;
     }
   }
 
@@ -30,11 +37,17 @@ export class LocalStorageService extends AppService<any>{
 export type LocalStorageValueType =
   string |
   number |
-  boolean
+  boolean |
+  undefined
+
 export type LocalStorageKey =
   'access_token' |
   'organisation_id' |
-  'school_id'
-export const AccessToken = <string> new LocalStorageService().get("access_token",) ?? DEFAULT_ID,
-  SchoolId = <number> new LocalStorageService().get("school_id") ?? DEFAULT_ID,
-  OrganisationId = <number> new LocalStorageService().get("organisation_id") ?? DEFAULT_ID;
+  'school_id' |
+  'current_dashboard' |
+  'onboard_form_value';
+
+export const AccessToken = () => <string>new LocalStorageService().get("access_token",) ?? DEFAULT_STRING;
+export const SchoolId = () => <number | undefined>new LocalStorageService().get("school_id");
+export const OrganisationId = () => <number>new LocalStorageService().get("organisation_id") ?? DEFAULT_ID;
+export const CurrentDashboard = () => <DashboardOption | undefined>new LocalStorageService().get("current_dashboard");

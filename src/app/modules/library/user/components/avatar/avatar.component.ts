@@ -5,7 +5,8 @@ import {AvatarService} from "../../../../../services/general/avatar.service";
   selector: 'app-avatar',
   styleUrls: ['./avatar.component.css'],
   template: `
-    <img #image src="../../../../../../assets/image/avatar/default.png" alt="{{firstname + ' ' + lastname}} avatar" class="rounded-circle">
+    <img #image src="../../../../../../assets/image/avatar/default.png" alt="{{firstname + ' ' + lastname}} avatar"
+         class="rounded-circle">
   `
 })
 export class AvatarComponent implements OnInit {
@@ -32,7 +33,7 @@ export class AvatarComponent implements OnInit {
   }
 
   private name() {
-    let f = "John" , l = "Doe"
+    let f = "John", l = "Doe"
     if (this.firstname.length > 0) {
       const i = this.firstname.indexOf(" ");
       f = this.firstname.substring(0, i);

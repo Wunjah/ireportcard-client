@@ -1,0 +1,41 @@
+<form [formGroup]="form" class="formgrid grid">
+  <div class="field col-12 md:col-6 pb-3">
+    <span class="p-float-label">
+      <input class="w-full p-inputtext-sm" formControlName="fatherName" id="fatherName" pInputText>
+      <label [htmlFor]="'fatherName'">Father Name</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+    <span class="p-float-label">
+      <input class="w-full p-inputtext-sm" formControlName="fatherPhone" id="fatherPhone" pInputText>
+      <label [htmlFor]="'fatherPhone'">Father Phone</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+    <span class="p-float-label">
+      <input class="w-full p-inputtext-sm" formControlName="motherName" id="motherName" pInputText>
+      <label [htmlFor]="'motherName'">Mother Name</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+    <span class="p-float-label">
+      <input class="w-full p-inputtext-sm" formControlName="motherPhone" id="motherPhone" pInputText>
+      <label [htmlFor]="'motherName'">Mother Phone</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+    <span class="p-float-label">
+      <input class="w-full p-inputtext-sm" formControlName="guardianName" id="guardianName" pInputText>
+      <label [htmlFor]="'guardianName'">First Name</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-6 pb-3">
+    <span class="p-float-label">
+      <input class="w-full p-inputtext-sm" formControlName="guardianPhone" id="guardianPhone" pInputText>
+      <label [htmlFor]="'guardianPhone'">First Name</label>
+    </span>
+  </div>
+  <div class="field col-4">
+    <p-button label="Next" styleClass="w-full p-button-sm" (click)="nextPageAction()"></p-button>
+  </div>
+</form>

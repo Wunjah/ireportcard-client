@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {SchoolModel} from "../../../../../models/school/school.model";
-import {SchoolService} from "../../../../../services/school/school.service";
+import {Component} from '@angular/core';
+import {SchoolEntity} from "../../../../../models/entity/school/school.entity";
+import {SchoolService} from "../../../../../services/http/school/school.service";
 
 @Component({
   selector: 'app-org-schools-add',
@@ -13,7 +13,7 @@ export class OrgSchoolsAddComponent {
   ) {
   }
 
-  addSchoolAction($event: SchoolModel) {
+  addSchoolAction($event: SchoolEntity) {
     console.log($event)
     this._schoolService.create($event).subscribe();
   }

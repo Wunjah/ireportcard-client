@@ -1,14 +1,20 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRoute, NavigationExtras, Router} from "@angular/router";
 import {AppRoute} from "../../app.routes";
+import {LocalStorageService} from "./local-storage.service";
+import {DashboardOption} from "../../app.types";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouterService {
-  private _route?: ActivatedRoute;
+  constructor(
+    private _router: Router,
+    private _localStorage: LocalStorageService
+  ) {
+  }
 
-  constructor(private _router: Router) { }
+  private _route?: ActivatedRoute;
 
   set route(r: ActivatedRoute) {
     this._route = r;
@@ -28,7 +34,38 @@ export class RouterService {
     });
   }
 
-  param = <T> (p: string): T => {
+  ;
+
+  reload() {
+    this.nav([this._router.url], undefined, () => location.reload())
+  }
+
+  switchDashboard = (option: DashboardOption, reroute?: boolean) => {
+    const target: string[] = [];
+    switch (option) {
+      case "organisation":
+        target.push('/app/organisation');
+        break;
+      case "school":
+        target.push('/app/school');
+        break;
+      case "teacher":
+        target.push('/app/teacher');
+        break;
+      case "student":
+        target.push('/app/student');
+        break;
+    }
+
+    this._localStorage.set("current_dashboard", option);
+    if (reroute) {
+      this.nav(target, undefined, () => {
+        this.reload();
+      });
+    }
+  }
+
+  param = <T>(p: string): T => {
     if (this._route) {
       return this._route.snapshot.params[p] as T;
     } else {
@@ -36,4 +73,3 @@ export class RouterService {
     }
   }
 }
-

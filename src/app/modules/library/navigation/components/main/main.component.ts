@@ -1,15 +1,8 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  ContentChild,
-  OnChanges,
-  OnInit,
-  SimpleChanges
-} from '@angular/core';
+import {Component, ContentChild, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {BreadCrumbModel} from "../../models/bread-crumb.model";
+import {BreadCrumbMenuItem, BreadCrumbModel} from "../../models/bread-crumb.model";
 import {AppRoute} from "../../../../../app.routes";
+import {MenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-main',
@@ -18,18 +11,22 @@ import {AppRoute} from "../../../../../app.routes";
 })
 export class MainComponent implements OnInit {
   @ContentChild('content') content: any;
+  breadCrumb?: BreadCrumbModel;
+  menuItems: MenuItem[] = [];
   private fullPath: string = "";
-  breadCrumb?: BreadCrumbModel
+
   constructor(private _route: ActivatedRoute, private _router: Router) {
   }
 
   ngOnInit() {
     this.fullPath = this.resolve(this._route).join(".");
     this.breadCrumb = new BreadCrumbModel(new AppRoute(this.fullPath));
+    this.menuItems = breadCrumbMenuItems(this.breadCrumb.route);
     this._router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.fullPath = this.resolve(this._route).join(".");
         this.breadCrumb = new BreadCrumbModel(new AppRoute(this.fullPath));
+        this.menuItems = breadCrumbMenuItems(this.breadCrumb.route);
       }
     });
   }
@@ -43,3 +40,14 @@ export class MainComponent implements OnInit {
   }
 }
 
+export const breadCrumbMenuItems = (route: AppRoute): BreadCrumbMenuItem[] => {
+  return route.routes.map((r, i) => {
+    const resolvedRoute = route.routes.slice(0, i + 1).reduce((prev, curr) => {
+      return {
+        main: `${prev.main}/${curr.main}`.replace('//', '/'),
+        name: curr.name
+      }
+    });
+    return {routerLink: resolvedRoute.main, label: resolvedRoute.name}
+  });
+}

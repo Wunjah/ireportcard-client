@@ -1,0 +1,122 @@
+<div class="surface-section">
+  <p-accordion [activeIndex]="0">
+    <p-accordionTab header="Academic Years">
+      <form class="formgrid grid">
+        <div class="col-12 md:col-6">
+          <div class="pb-3">
+            <span class="text-xl">Academic Year Details</span>
+          </div>
+          <div class="grid">
+            <div class="field col-12">
+              <label for="year1">Start Year</label>
+              <input class="w-full p-inputtext-sm" id="year1" pInputText>
+            </div>
+            <div class="field col-12">
+              <label for="year2">End Year</label>
+              <input class="w-full p-inputtext-sm" id="year2" pInputText>
+            </div>
+            <div class="field col-12">
+              <label class="block mb-2" for="effective">Effective Date</label>
+              <p-calendar id="effective" styleClass="w-full p-inputtext-sm"></p-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-6">
+          <div class="pb-3">
+            <span class="text-xl ">Previous Year Cycles</span>
+          </div>
+          <div class="grid">
+            <div class="field col-12">
+              <label for="address1">Address Line 1</label>
+              <input class="w-full p-inputtext-sm" id="address1" pInputText>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 gap-2 flex flex-wrap gap-1">
+          <p-button label="Save" styleClass="p-button-sm"></p-button>
+          <p-button label="Cancel" styleClass="p-button-sm p-button-secondary"></p-button>
+        </div>
+      </form>
+    </p-accordionTab>
+    <p-accordionTab header="Terms">
+      <form class="formgrid grid">
+        <div class="col-12 md:col-6">
+          <div class="pb-3">
+            <span class="text-xl">Term Details</span>
+          </div>
+          <div class="grid">
+            <div class="field col-12">
+              <label class="block mb-2" for="year1">Term</label>
+              <p-dropdown placeholder="Select Term" styleClass="w-full"></p-dropdown>
+            </div>
+            <div class="field col-12">
+              <label for="termName">Name</label>
+              <input class="w-full p-inputtext-sm" id="termName" pInputText>
+            </div>
+            <div class="field col-12">
+              <label for="termType">Type</label>
+              <input class="w-full p-inputtext-sm" id="termType" pInputText>
+            </div>
+            <div class="field col-12">
+              <label class="block mb-2" for="termEffective">Effective Date</label>
+              <p-calendar id="termEffective" styleClass="w-full p-inputtext-sm"></p-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-6">
+          <div class="pb-3">
+            <span class="text-xl ">Regular Terms</span>
+          </div>
+          <div class="grid">
+            <div class="field col-12">
+              <label for="address1">Address Line 1</label>
+              <input class="w-full p-inputtext-sm" id="address1" pInputText>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 gap-2 flex flex-wrap gap-1">
+          <p-button label="Save" styleClass="p-button-sm"></p-button>
+          <p-button label="Cancel" styleClass="p-button-sm p-button-secondary"></p-button>
+        </div>
+      </form>
+    </p-accordionTab>
+    <p-accordionTab header="Sequences">
+      <form class="formgrid grid">
+        <div class="col-12 md:col-6">
+          <div class="pb-3">
+            <span class="text-xl">Sequence Details</span>
+          </div>
+          <div class="grid">
+            <div class="field col-12">
+              <label class="block mb-2" for="year1">Sequence</label>
+              <p-dropdown placeholder="Select Term" styleClass="w-full"></p-dropdown>
+            </div>
+            <div class="field col-12">
+              <label for="termName">Name</label>
+              <input class="w-full p-inputtext-sm" id="sequenceName" pInputText>
+            </div>
+            <div class="field col-12">
+              <label for="termType">Type</label>
+              <input class="w-full p-inputtext-sm" id="sequenceType" pInputText>
+            </div>
+            <div class="field col-12">
+              <label class="block mb-2" for="termEffective">Effective Date</label>
+              <p-calendar id="sequenceEffective" styleClass="w-full p-inputtext-sm"></p-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-6">
+          <div class="pb-3">
+            <span class="text-xl ">Regular Sequences</span>
+          </div>
+          <div class="grid">
+            <div class="field col-12">
+              <label for="address1">Address Line 1</label>
+              <input class="w-full p-inputtext-sm" id="address1" pInputText>
+            </div>
+          </div>
+        </div>
+      </form>
+    </p-accordionTab>
+  </p-accordion>
+</div>

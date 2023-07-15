@@ -1,19 +1,16 @@
-import {AuthenticationService} from "../services/authentication/authentication.service";
+import {AuthenticationService} from "../services/http/authentication/authentication.service";
 import {Type} from "@angular/core";
-import {AppService} from "../services/base/app.service";
-import {LocalStorageService} from "../services/general/local-storage.service";
+import {AppService} from "../services/http/base/app.service";
 
-type AppServiceInjectable = { provide: Type<AppService<any>>, useClass: Type<AppService<any>>}[]
+type HttpAppServiceInjectable = { provide: Type<AppService<any, any>>, useClass: Type<AppService<any, any>> }[]
 
-const authenticationServiceInjectables: AppServiceInjectable = [
+const authenticationServiceInjectables: HttpAppServiceInjectable = [
   {provide: AuthenticationService, useClass: AuthenticationService}
 ]
 
-const generalServiceInjectables: AppServiceInjectable = [
-  {provide: LocalStorageService, useClass: LocalStorageService}
-]
+const generalServiceInjectables: HttpAppServiceInjectable = []
 
-export const AppServiceInjectables: AppServiceInjectable[] = [
+export const AppServiceInjectables: HttpAppServiceInjectable[] = [
   authenticationServiceInjectables,
   generalServiceInjectables
 ]

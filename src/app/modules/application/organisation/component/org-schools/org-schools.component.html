@@ -1,1 +1,23 @@
 <app-datatable *ngIf="table" [table]="table"></app-datatable>
+<p-table [title]="title" [value]="data">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template let-d pTemplate="body">
+    <tr>
+      <td>{{d.id}}</td>
+      <td>{{d.name}}</td>
+      <td>
+        <p-button
+          [routerLink]="[AppRoute.APP_ORG_SCHOOLS_VIEW.path + '/' + d.id]"
+          label="View"
+          styleClass="p-button-sm p-button-raised">
+        </p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

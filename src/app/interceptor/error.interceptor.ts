@@ -1,16 +1,12 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor, HttpErrorResponse
-} from '@angular/common/http';
-import {catchError, EMPTY, Observable, throwError} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {catchError, Observable, throwError} from 'rxjs';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() {
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
@@ -19,7 +15,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   }
 
   private errorResponseHandler = (response: HttpErrorResponse) => {
-    if (response.hasOwnProperty('error') && response.error.hasOwnProperty('message')) {
+    if (response !== null && response.hasOwnProperty('error') && response.error.hasOwnProperty('message')) {
       const apiError = response.error as ApiError
       console.error(`${response.status}: ${apiError.message}`)
     }

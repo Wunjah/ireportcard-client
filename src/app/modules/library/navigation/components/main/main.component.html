@@ -1,14 +1,9 @@
-<main id="main" class="main">
-  <div *ngIf="breadCrumb" class="pagetitle">
-    <h1>{{breadCrumb.name}}</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li *ngFor="let b of breadCrumb.route.routes; let i = index"
-            class="breadcrumb-item {{(i == breadCrumb.route.routes.length - 1) ? 'active': ''}}">
-          <a>{{b.name}}</a>
-        </li>
-      </ol>
-    </nav>
+<main class="main" id="main">
+  <div *ngIf="breadCrumb" class="mb-5">
+    <h1 class="text-900">{{breadCrumb.name}}</h1>
+    <div class="card flex justify-content-center">
+      <p-breadcrumb [model]="menuItems" class="max-w-full"></p-breadcrumb>
+    </div>
   </div><!-- End Page Title -->
   <ng-content #content></ng-content>
 </main>

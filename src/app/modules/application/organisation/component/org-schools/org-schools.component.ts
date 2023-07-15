@@ -1,34 +1,30 @@
 import {Component, OnInit} from '@angular/core';
-import {TableRowAction, TableModel} from "../../../../library/crud/models/table.model";
-import {UserUtil} from "../../../../../utils/user.util";
-import {SchoolService} from "../../../../../services/school/school.service";
-import {LocalStorageService, OrganisationId} from "../../../../../services/general/local-storage.service";
-import {SchoolUtil} from "../../../../../utils/school.util";
-import {Id} from "../../../../../models/base/base.model";
+import {TableModel} from "../../../../library/crud/models/table.model";
+import {SchoolService} from "../../../../../services/http/school/school.service";
+import {OrganisationId} from "../../../../../services/general/local-storage.service";
 import {RouterService} from "../../../../../services/general/router.service";
-import {AppRoute, AppRoutes} from "../../../../../app.routes";
+import {AppRoute} from "../../../../../app.routes";
+import {SchoolEntity} from "../../../../../models/entity/school/school.entity";
+import {DataComponent} from "../../../../library/component/data.component";
 
 @Component({
   selector: 'app-org-schools',
   templateUrl: './org-schools.component.html',
   styleUrls: ['./org-schools.component.css']
 })
-export class OrgSchoolsComponent implements OnInit{
+export class OrgSchoolsComponent implements OnInit, DataComponent<SchoolEntity[]> {
   table?: TableModel;
+  title = "Schools";
+  data: SchoolEntity[] = [];
+  protected readonly AppRoute = AppRoute;
 
   constructor(
     private _routerService: RouterService,
-    private _schoolService: SchoolService) {
+    private _schoolService: SchoolService
+  ) {
   }
 
   ngOnInit(): void {
-    this._schoolService.getAllByOrganisation(OrganisationId).subscribe(res => {
-      const tableAction = {
-        name: "View",
-        action: (id: Id) => this._routerService.nav([`${AppRoute.APP_ORGANISATION_SCHOOLS_VIEW.path}/${id}`])
-      }
-
-      this.table = SchoolUtil.createSchoolsTable(res, tableAction);
-    })
+    this._schoolService.getAllByOrganisation(OrganisationId()).subscribe(res => this.data = res);
   }
 }

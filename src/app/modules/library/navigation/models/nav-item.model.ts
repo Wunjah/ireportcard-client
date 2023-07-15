@@ -1,10 +1,11 @@
 export interface NavItem {
   id?: number,
   code?: string,
-  name: string,
+  label: string,
   icon: string,
   link: string,
   active?: boolean,
+  action?: () => void,
   children?: NavItem[]
 }
 
@@ -24,17 +25,6 @@ export class NavItemGroup {
       i.children?.forEach(c => {
         c.id = ++id;
       })
-    });
-  }
-
-  switchActive = (item: NavItem, items?: NavItem[]) => {
-    (items ?? this.navItems).forEach(navItem => {
-      navItem.active = navItem.id == item.id || navItem.children?.find(child => child == item) != undefined;
-      if (navItem.children) {
-        navItem.children.forEach(childItem => {
-          childItem.active = childItem.id == item.id
-        })
-      }
     });
   }
 }
