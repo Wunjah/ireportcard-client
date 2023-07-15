@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: "ireportcard.azurewebsites.net"
+  apiUrl: "https://ireportcard.azurewebsites.net/api"
 };
