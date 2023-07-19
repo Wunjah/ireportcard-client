@@ -2,19 +2,19 @@
   <form class="formgrid grid">
     <div class="col-12 md:col-6">
       <div class="pb-3">
-        <span class="text-xl">Fee Details</span>
+        <span class="text-xl"  i18n>Fee Details</span>
       </div>
       <div class="grid">
         <div class="field col-12">
-          <label class="block mb-2" for="amount">Amount</label>
+          <label class="block mb-2" for="amount"  i18n>Amount</label>
           <input class="w-full p-inputtext-sm" id="amount" pInputText type="number">
         </div>
         <div class="field col-12">
-          <label class="block mb-2" for="effective">Effective Date</label>
+          <label class="block mb-2" for="effective"  i18n>Effective Date</label>
           <p-calendar id="effective" styleClass="w-full p-inputtext-sm"></p-calendar>
         </div>
         <div class="field col-12">
-          <label class="block mb-2" for="effective">Apply to class levels</label>
+          <label class="block mb-2" for="effective"  i18n>Apply to class levels</label>
           <p-multiSelect [options]="[]" placeholder="Select Class Level"
                          styleClass="w-full p-inputtext-sm"></p-multiSelect>
         </div>
@@ -23,11 +23,11 @@
     </div>
     <div class="col-12 md:col-6">
       <div class="pb-3">
-        <span class="text-xl">Previous Fee Details</span>
+        <span class="text-xl" i18n>Previous Fee Details</span>
       </div>
       <div class="grid">
         <div class="field col-12">
-          <span class="block mb-2" for="amount">No fee configuration</span>
+          <span class="block mb-2" for="amount" i18n>No fee configuration</span>
         </div>
       </div>
     </div>

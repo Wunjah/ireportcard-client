@@ -1,12 +1,12 @@
 <div class="surface-section">
   <div class="border-round mb-3 p-2 md:p-4">
     <div class="font-bold py-2 md:py-4">
-      <span class="text-2xl">Academic Year Cycle</span>
+      <span class="text-2xl" i18n>Academic Year Cycle</span>
     </div>
     <form [formGroup]="form" class="formgrid grid">
       <div class="col-12 md:col-6 border-round">
         <div class="field grid">
-          <label class="col-12 mb-2 md:col-3 md:mb-0" for="startYear">Start Year</label>
+          <label class="col-12 mb-2 md:col-3 md:mb-0" for="startYear" i18n>Start Year</label>
           <div class="col-12 md:col-9">
             <input (change)="endYearValue()" class="w-full" formControlName="startYear" id="startYear" pInputText
                    type="number">
@@ -15,7 +15,7 @@
       </div>
       <div class="col-12 md:col-6 border-round">
         <div class="field grid">
-          <label class="col-12 mb-2 md:col-3 md:mb-0" for="endYear">End Year</label>
+          <label class="col-12 mb-2 md:col-3 md:mb-0" for="endYear" i18n>End Year</label>
           <div class="col-12 md:col-9">
             <input [value]="endYearValue()" class="w-full" formControlName="endYear" id="endYear" pInputText
                    type="number">
@@ -24,17 +24,17 @@
       </div>
       <div class="col-12 md:col-6 border-round">
         <div class="field grid">
-          <label class="col-12 mb-2 md:col-3 md:mb-0" for="openingDate">Opening Date</label>
+          <label class="col-12 mb-2 md:col-3 md:mb-0" for="openingDate" i18n>Opening Date</label>
           <div class="col-12 md:col-9">
-            <p-calendar formControlName="openingDate" id="openingDate" styleClass="w-full"></p-calendar>
+            <p-calendar formControlName="openingDate" id="openingDate" styleClass="w-full" i18n></p-calendar>
           </div>
         </div>
       </div>
       <div class="col-12 md:col-6 border-round">
         <div class="field grid">
-          <label class="col-12 mb-2 md:col-3 md:mb-0" for="closingDate">Closing Date</label>
+          <label class="col-12 mb-2 md:col-3 md:mb-0" for="closingDate" i18n>Closing Date</label>
           <div class="col-12 md:col-9">
-            <p-calendar formControlName="closingDate" id="closingDate" styleClass="w-full"></p-calendar>
+            <p-calendar formControlName="closingDate" id="closingDate" styleClass="w-full" i18n></p-calendar>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
           [disabled]="cycleActionButton().disabled"
           label="{{cycleActionButton().text}}"
           styleClass="p-button-sm w-full"
-          type="button">
+          type="button" i18n>
         </p-button>
       </div>
     </form>

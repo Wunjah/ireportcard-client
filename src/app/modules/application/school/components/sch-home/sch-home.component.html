@@ -21,16 +21,16 @@
     <div class="col-12 md:col-6 app-bg-body">
       <div class="surface-card shadow-2 p-3 border-round border-round-xl">
         <div class="flex justify-content-between py-3 px2">
-          <span>Title</span>
+          <span i18n>Title</span>
           <i class="pi pi-ellipsis-v"></i>
         </div>
         <div class="card">
           <p-table [value]="users">
             <ng-template pTemplate="header">
               <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Date</th>
+                <th i18n>ID</th>
+                <th i18n>Username</th>
+                <th i18n>Date</th>
               </tr>
             </ng-template>
             <ng-template let-u pTemplate="body">
@@ -47,15 +47,15 @@
     <div class="col-12 md:col-6 app-bg-body">
       <div class="surface-card shadow-2 p-3 border-round border-round-xl">
         <div class="flex justify-content-between py-3 px2">
-          <span>Posts</span>
+          <span i18n>Posts</span>
           <i class="pi pi-ellipsis-v"></i>
         </div>
         <div class="card">
           <p-table [value]="posts">
             <ng-template pTemplate="header">
               <tr>
-                <th>Title</th>
-                <th>Date</th>
+                <th i18n>Title</th>
+                <th i18n>Date</th>
               </tr>
             </ng-template>
             <ng-template let-p pTemplate="body">

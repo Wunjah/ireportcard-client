@@ -9,75 +9,75 @@ export const AppRoutes: AppRouteType = {
   main: '/',
   auth: {
     main: '/auth',
-    name: 'Authentication',
+    name: $localize `Authentication`,
     login: {
       main: '/login',
-      name: 'Login'
+      name:$localize `Login`
     },
     register: {
       main: '/register',
-      name: 'Register'
+      name:$localize `Register`
     }
   },
   app: {
     main: '/app',
-    name: 'App',
+    name: $localize `App`,
     home: '/app/home',
     user: {
       main: '/user',
-      name: 'User',
+      name:$localize `User`,
       profile: {
         main: '/profile',
-        name: 'Profile',
+        name: $localize`Profile`,
       }
     },
     organisation: {
       main: '/organisation',
-      name: 'Organisation',
+      name: $localize`Organisation`,
       schools: {
         main: '/schools',
-        name: 'Schools',
+        name: $localize`Schools`,
         view: {
           main: '/view',
-          name: 'View School'
+          name: $localize`View School`
         },
         assign_admin: {
           main: '/assign-admin',
-          name: 'Assign Admin'
+          name:$localize `Assign Admin`
         }
       }
     },
     school: {
       main: '/school',
-      name: 'School',
+      name:$localize ``,
       students: {
         main: '/students',
         name: 'Students',
         view: {
           main: '/view',
-          name: 'View Student'
+          name: $localize`View Student`
         }
       },
       classes: {
         main: '/classes',
-        name: 'Classes'
+        name:$localize `Classes`
       },
       courses: {
         main: '/courses',
-        name: 'Courses'
+        name:$localize `Courses`
       },
       configuration: {
         main: '/configuration',
-        name: 'Configuration'
+        name:$localize `Configuration`
       }
     },
     student: {
       main: '/student',
-      name: 'Student',
+      name:$localize `Student`,
     },
     teacher: {
       main: '/teacher',
-      name: 'Teacher',
+      name:$localize `Teacher`,
     }
   }
 }
